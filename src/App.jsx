@@ -5,8 +5,6 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
-import Terms from "./pages/Terms";
-import Disclaimer from "./pages/Disclaimer";
 
 
 // Pages
@@ -74,8 +72,6 @@ function AnimatedRoutes() {
           <Route path="/tan-registration" element={<TAN />} />
           <Route path="/msme-registration" element={<MSME />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-          <Route path="/terms-and-conditions" element={<Terms />} />
-          <Route path="/disclaimer" element={<Disclaimer />} />
         </Routes>
       </motion.div>
     </AnimatePresence>
