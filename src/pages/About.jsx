@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Helmet } from "react-helmet-async";
 import { FaUsers, FaClock, FaMapMarkerAlt, FaCheckCircle, FaHandshake, FaAward, FaLightbulb, FaRocket, FaFileAlt, FaCog, FaTrophy, FaShieldAlt } from "react-icons/fa";
 import { useEffect, useState } from "react";
 
@@ -34,6 +35,53 @@ function Counter({ end, suffix = "" }) {
 export default function About() {
   return (
     <div className="min-h-screen">
+      <br />
+      <Helmet>
+        <title>About JM Rao Associates - Tax Consultancy in Andhra Pradesh</title>
+        <meta name="description" content="Learn about JM Rao Associates, a trusted tax consultancy firm in Andhra Pradesh offering expert tax services for businesses and individuals in Narasapuram and Palakolu." />
+        <meta name="keywords" content="tax consultancy, Andhra Pradesh, GST registration, income tax returns, TDS, professional tax, tax audit, PAN registration, TAN, FSSAI, MSME, Narasapuram, Palakolu" />
+        <meta name="robots" content="index, follow" />
+        <meta name="author" content="JM Rao Associates" />
+        <link rel="canonical" href="https://jmraoassociates.com/about" />
+      </Helmet>
+
+      <Helmet>
+        <script type="application/ld+json">
+          {`
+          {
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            "name": "JM Rao Associates",
+            "description": "Trusted tax consultancy firm in Andhra Pradesh",
+            "url": "https://jmraoassociates.com/about",
+            "telephone": "+91-8801221088",
+            "email": "jmraoassociates@gmail.com",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Narasapuram",
+              "addressRegion": "Andhra Pradesh",
+              "addressCountry": "IN"
+            },
+            "areaServed": [
+              {
+                "@type": "Place",
+                "name": "Andhra Pradesh"
+              },
+              {
+                "@type": "Place",
+                "name": "Narasapuram"
+              },
+              {
+                "@type": "Place",
+                "name": "Palakolu"
+              }
+            ],
+            "serviceType": ["Tax Consultancy", "GST Services", "Business Registration"],
+            "priceRange": "$$"
+          }
+          `}
+        </script>
+      </Helmet>
 
       {/* Hero Section */}
       <div className="relative bg-gradient-to-r from-blue-700 to-blue-900 rounded-2xl overflow-hidden mb-16 mx-4 sm:mx-6 lg:mx-auto max-w-7xl">

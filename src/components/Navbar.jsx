@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import logo from "../assets/logo1.svg";
 import { FaBars, FaTimes, FaChevronDown, FaPhone, FaWhatsapp } from "react-icons/fa";
 
-export default function Navbar() {
+export default function Navbar() { 
   const [menuOpen, setMenuOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState({
     gst: false,
@@ -35,7 +35,7 @@ export default function Navbar() {
           <div className="flex items-center space-x-6">
             <div className="flex items-center space-x-2">
               <FaPhone className="text-yellow-300 text-xs" />
-              <span>+91 8801221088</span>
+              <span>+91 94914 68423</span>
             </div>
             <div className="hidden sm:flex items-center space-x-2">
               <FaWhatsapp className="text-green-300 text-xs" />
@@ -43,7 +43,7 @@ export default function Navbar() {
             </div>
           </div>
           <div className="hidden md:block text-xs opacity-90">
-            Serving Narasapuram & Palakolu | Est. 2017
+            Serving Andhra Pradesh | Est. 2017
           </div>
         </div>
       </div>
@@ -168,6 +168,7 @@ export default function Navbar() {
             </Link>
 
           </ul>
+    
 
           {/* Mobile Menu Button */}
           <button

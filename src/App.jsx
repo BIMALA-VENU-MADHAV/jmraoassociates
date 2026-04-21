@@ -1,6 +1,13 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { AnimatePresence, motion } from "framer-motion";
+
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import ScrollToTop from "./components/ScrollToTop";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import Terms from "./pages/Terms";
+import Disclaimer from "./pages/Disclaimer";
+
 
 // Pages
 import Home from "./pages/Home";
@@ -28,18 +35,19 @@ import PAN from "./pages/PAN";
 import TAN from "./pages/TAN";
 import MSME from "./pages/MSME";
 
-function App() {
+function AnimatedRoutes() {
+  const location = useLocation();
+
   return (
-    <BrowserRouter>
-
-      {/* Navbar */}
-      <Navbar />
-
-      {/* Main Content */}
-      <div className="min-h-screen">
-
-        <Routes>
-
+    <AnimatePresence mode="wait">
+      <motion.div
+        key={location.pathname}
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -30 }}
+        transition={{ duration: 0.4 }}
+      >
+        <Routes location={location}>
           {/* MAIN */}
           <Route path="/" element={<Home />} />
           <Route path="/about-us" element={<About />} />
@@ -65,14 +73,26 @@ function App() {
           <Route path="/pan-registration" element={<PAN />} />
           <Route path="/tan-registration" element={<TAN />} />
           <Route path="/msme-registration" element={<MSME />} />
-
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/terms-and-conditions" element={<Terms />} />
+          <Route path="/disclaimer" element={<Disclaimer />} />
         </Routes>
+      </motion.div>
+    </AnimatePresence>
+  );
+}
 
+function App() {
+  return (
+    <BrowserRouter>
+      <ScrollToTop />
+      <Navbar />
+
+      <div className="min-h-screen">
+        <AnimatedRoutes />
       </div>
 
-      {/* Footer */}
       <Footer />
-
     </BrowserRouter>
   );
 }

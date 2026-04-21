@@ -1,9 +1,61 @@
 import { motion } from "framer-motion";
-import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaClock, FaUser, FaPaperPlane, FaWhatsapp } from "react-icons/fa";
+import { Helmet } from "react-helmet-async";
+import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaClock, FaUser, FaPaperPlane, FaWhatsapp, FaCheckCircle, FaExclamationCircle } from "react-icons/fa";
+import { useState } from "react";
 
 export default function Contact() {
+  const [loading, setLoading] = useState(false);
+  const [statusMessage, setStatusMessage] = useState({ type: "", text: "" });
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setStatusMessage({ type: "", text: "" });
+
+    const formElement = e.target;
+    const formDataToSend = new FormData(formElement);
+
+    try {
+      // Send form data to FormSubmit
+      const response = await fetch("https://formsubmit.co/ajax/jmraoassociates@gmail.com", {
+        method: "POST",
+        body: formDataToSend,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        setStatusMessage({
+          type: "success",
+          text: "Message sent successfully! We'll get back to you within 24 hours."
+        });
+        // Reset form
+        formElement.reset();
+      } else {
+        throw new Error("Form submission failed");
+      }
+    } catch (error) {
+      console.error("Form submission error:", error);
+      setStatusMessage({
+        type: "error",
+        text: "Failed to send message. Please try again or contact us directly at +91 88012 21088"
+      });
+    } finally {
+      setLoading(false);
+      // Clear message after 5 seconds
+      setTimeout(() => setStatusMessage({ type: "", text: "" }), 5000);
+    }
+  };
+
   return (
     <div className="min-h-screen">
+      <br />
+
+      <Helmet>
+        <title>Contact Us | JM Rao Associates</title>
+        <meta name="description" content="Get in touch with JM Rao Associates for expert tax and compliance services in Andhra Pradesh. Contact us via phone, email, or visit our offices in Narasapuram and Palakolu." />
+      </Helmet>
 
       {/* Hero Section */}
       <div className="relative bg-gradient-to-r from-blue-700 to-blue-900 rounded-2xl overflow-hidden mb-16 mx-4 sm:mx-6 lg:mx-auto max-w-7xl">
@@ -58,7 +110,7 @@ export default function Contact() {
               {
                 icon: <FaClock className="text-3xl text-blue-600" />,
                 title: "Business Hours",
-                content: "Mon - Sat: 9:00 AM - 6:00 PM\nSunday: Closed",
+                content: "Mon - Sat: 10:00 AM - 6:00 PM\nSunday: Closed",
                 action: "#"
               }
             ].map((item, index) => (
@@ -106,21 +158,41 @@ export default function Contact() {
               Fill out the form below and we'll get back to you within 24 hours.
             </p>
 
-            <form className="space-y-6">
+            <form className="space-y-6" onSubmit={handleSubmit}>
+              {/* Status Message */}
+              {statusMessage.text && (
+                <div className={`p-4 rounded-lg flex items-center space-x-3 ${
+                  statusMessage.type === "success"
+                    ? "bg-green-50 border border-green-200"
+                    : "bg-red-50 border border-red-200"
+                }`}>
+                  {statusMessage.type === "success" ? (
+                    <FaCheckCircle className="text-green-600 text-xl flex-shrink-0" />
+                  ) : (
+                    <FaExclamationCircle className="text-red-600 text-xl flex-shrink-0" />
+                  )}
+                  <p className={statusMessage.type === "success" ? "text-green-700" : "text-red-700"}>
+                    {statusMessage.text}
+                  </p>
+                </div>
+              )}
+
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">Full Name *</label>
                   <input
                     type="text"
+                    name="name"
                     placeholder="Your Name"
                     className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-colors"
                     required
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">Email Address *</label>
                   <input
                     type="email"
+                    name="email"
                     placeholder="your@email.com"
                     className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-colors"
                     required
@@ -129,9 +201,10 @@ export default function Contact() {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">Phone Number</label>
+                <label className="block text-sm font-medium text-gray-700 mb-2">Phone Number *</label>
                 <input
                   type="tel"
+                  name="phone"
                   placeholder="+91 XXXXX XXXXX"
                   className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-colors"
                   required
@@ -140,7 +213,10 @@ export default function Contact() {
 
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">Service Required</label>
-                <select className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-colors">
+                <select
+                  name="service"
+                  className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-colors"
+                >
                   <option value="">Select a service</option>
                   <option value="gst">GST Registration/Returns</option>
                   <option value="income-tax">Income Tax Filing</option>
@@ -154,8 +230,9 @@ export default function Contact() {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">Message</label>
+                <label className="block text-sm font-medium text-gray-700 mb-2">Message *</label>
                 <textarea
+                  name="message"
                   rows="4"
                   placeholder="Tell us about your requirements..."
                   className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-colors resize-none"
@@ -163,12 +240,16 @@ export default function Contact() {
                 ></textarea>
               </div>
 
+              {/* Honey pot field for spam protection */}
+              <input type="hidden" name="_captcha" value="false" />
+              <input type="hidden" name="_next" value={window.location.href} />
+
               <button
                 type="submit"
-                className="w-full bg-blue-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-700 transition-colors flex items-center justify-center space-x-2"
-              >
+                disabled={loading}
+                className={`w-full ${loading ? 'bg-gray-400' : 'bg-blue-600 hover:bg-blue-700'} text-white py-3 px-6 rounded-lg font-semibold transition-colors flex items-center justify-center space-x-2 ${loading ? 'cursor-not-allowed' : 'cursor-pointer'}`}>
                 <FaPaperPlane className="text-sm" />
-                <span>Send Message</span>
+                <span>{loading ? 'Sending...' : 'Send Message'}</span>
               </button>
             </form>
           </motion.div>

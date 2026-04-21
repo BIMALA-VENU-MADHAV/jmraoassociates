@@ -1,9 +1,58 @@
 import { motion } from "framer-motion";
+import { Helmet } from "react-helmet-async";
 import { FaFileAlt, FaFileSignature, FaUsers, FaCheckCircle, FaCreditCard, FaClipboardCheck, FaSearch, FaFileUpload } from "react-icons/fa";
 
 export default function TAN() {
   return (
     <div className="min-h-screen">
+      <br />
+      <Helmet>
+  <title>TAN Registration Services in Andhra Pradesh | JM Rao Associates</title>
+
+  <meta
+    name="description"
+    content="Get TAN registration services in Andhra Pradesh with JM Rao Associates. Quick application, expert support, and complete compliance. Serving Narasapuram, Palakolu & across AP."
+  />
+
+  <meta
+    name="keywords"
+    content="TAN registration Andhra Pradesh, TAN apply, tax deduction account number, TAN services AP, TAN Narasapuram, TAN Palakolu"
+  />
+
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="JM Rao Associates" />
+
+  <link rel="canonical" href="https://jmraoassociates.com/tan-registration" />
+</Helmet>
+
+<Helmet>
+  <script type="application/ld+json">
+    {`
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "JM Rao Associates",
+      "description": "TAN registration services in Andhra Pradesh",
+      "url": "https://jmraoassociates.com/tan-registration",
+      "telephone": "+91-8801221088",
+      "email": "jmraoassociates@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Narasapuram",
+        "addressRegion": "Andhra Pradesh",
+        "addressCountry": "IN"
+      },
+      "areaServed": [
+        { "@type": "Place", "name": "Andhra Pradesh" },
+        { "@type": "Place", "name": "Narasapuram" },
+        { "@type": "Place", "name": "Palakolu" }
+      ],
+      "serviceType": ["TAN Registration", "TDS Services"],
+      "priceRange": "$$"
+    }
+    `}
+  </script>
+</Helmet>
 
       {/* Hero Section */}
       <div className="relative bg-gradient-to-r from-blue-700 to-blue-900 rounded-2xl overflow-hidden mb-16 mx-4 sm:mx-6 lg:mx-auto max-w-7xl">

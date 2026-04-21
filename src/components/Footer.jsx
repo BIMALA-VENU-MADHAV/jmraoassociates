@@ -169,7 +169,7 @@ const Footer = () => {
                     <div>
                       <div className="font-medium">Office Hours</div>
                       <div className="text-blue-200 text-sm">
-                        Mon - Sat: 9:30 AM - 7:00 PM<br />
+                        Mon - Sat: 10:00 AM - 6:00 PM<br />
                         Sunday: Closed
                       </div>
                     </div>
@@ -270,12 +270,9 @@ const Footer = () => {
               </p>
             </div>
 
-            <div className="flex items-center space-x-6 text-sm text-blue-200">
+            <div className="flex items-center space-x-6 text-sm text-blue-200"> 
               <Link to="/privacy-policy" className="hover:text-white transition-colors">
                 Privacy Policy
-              </Link>
-              <Link to="/terms-of-service" className="hover:text-white transition-colors">
-                Terms of Service
               </Link>
               <Link to="/contact-us" className="hover:text-white transition-colors">
                 Contact Us

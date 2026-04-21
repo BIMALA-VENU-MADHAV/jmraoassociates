@@ -1,9 +1,58 @@
 import { motion } from "framer-motion";
+import { Helmet } from "react-helmet-async";
 import { FaMoneyBillWave, FaCheckCircle, FaUsers, FaClipboardList, FaShieldAlt, FaClock, FaCalculator, FaFileUpload, FaFileSignature } from "react-icons/fa";
 
 export default function TDS() {
   return (
     <div className="min-h-screen">
+      <br />
+
+      <Helmet>
+  <title>TDS Return Filing Services in Andhra Pradesh | JM Rao Associates</title>
+  <meta name="description" content="Complete TDS return filing services in Andhra Pradesh. Quarterly returns, compliance assistance, penalty avoidance. Expert consultants, accurate filing. Serving Narasapuram, Palakolu & across AP." />
+  <meta name="keywords" content="TDS return filing Andhra Pradesh, TDS returns, TDS compliance, tax deducted at source, TDS filing Narasapuram, TDS filing Palakolu, quarterly TDS returns" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="JM Rao Associates" />
+  <link rel="canonical" href="https://jmraoassociates.com/tds" />
+</Helmet>
+
+<Helmet>
+  <script type="application/ld+json">
+    {`
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "JM Rao Associates",
+      "description": "Professional TDS return filing services in Andhra Pradesh",
+      "url": "https://jmraoassociates.com/tds",
+      "telephone": "+91-8801221088",
+      "email": "jmraoassociates@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Narasapuram",
+        "addressRegion": "Andhra Pradesh",
+        "addressCountry": "IN"
+      },
+      "areaServed": [
+        {
+          "@type": "Place",
+          "name": "Andhra Pradesh"
+        },
+        {
+          "@type": "Place",
+          "name": "Narasapuram"
+        },
+        {
+          "@type": "Place",
+          "name": "Palakolu"
+        }
+      ],
+      "serviceType": ["TDS Return Filing Services", "Tax Consultancy"],
+      "priceRange": "$$"
+    }
+    `}
+  </script>
+</Helmet>
 
       {/* Hero Section */}
       <div className="relative bg-gradient-to-r from-blue-700 to-blue-900 rounded-2xl overflow-hidden mb-16 mx-4 sm:mx-6 lg:mx-auto max-w-7xl">

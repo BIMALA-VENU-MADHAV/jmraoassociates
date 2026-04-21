@@ -1,9 +1,62 @@
 import { motion } from "framer-motion";
+import { Helmet } from "react-helmet-async";
 import { FaEdit, FaCheckCircle, FaUsers, FaClipboardList, FaClock, FaShieldAlt, FaSearch, FaFileUpload, FaFileSignature, FaSync } from "react-icons/fa";
 
 export default function GSTModifications() {
   return (
     <div className="min-h-screen">
+      <br />
+      <Helmet>
+        <title>
+          GST Modification Services in Andhra Pradesh | JM Rao Associates
+        </title>
+
+        <meta
+          name="description"
+          content="Update or modify your GST registration details in Andhra Pradesh with JM Rao Associates. Fast GST amendments, corrections, and compliance support. Serving Narasapuram, Palakolu & across AP."
+        />
+
+        <meta
+          name="keywords"
+          content="GST modification Andhra Pradesh, GST amendment, GST correction, update GST details, GST services AP, GST Narasapuram, GST Palakolu"
+        />
+
+        <meta name="robots" content="index, follow" />
+        <meta name="author" content="JM Rao Associates" />
+
+        <link
+          rel="canonical"
+          href="https://jmraoassociates.com/gst-modifications"
+        />
+
+        {/* Structured Data */}
+        <script type="application/ld+json">
+          {`
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "JM Rao Associates",
+      "description": "GST modification and amendment services in Andhra Pradesh",
+      "url": "https://jmraoassociates.com/gst-modifications",
+      "telephone": "+91-8801221088",
+      "email": "jmraoassociates@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Narasapuram",
+        "addressRegion": "Andhra Pradesh",
+        "addressCountry": "IN"
+      },
+      "areaServed": [
+        { "@type": "Place", "name": "Andhra Pradesh" },
+        { "@type": "Place", "name": "Narasapuram" },
+        { "@type": "Place", "name": "Palakolu" }
+      ],
+      "serviceType": ["GST Modification", "GST Amendment Services"],
+      "priceRange": "$$"
+    }
+    `}
+        </script>
+      </Helmet>
 
       {/* Hero Section */}
       <div className="relative bg-gradient-to-r from-blue-700 to-blue-900 rounded-2xl overflow-hidden mb-16 mx-4 sm:mx-6 lg:mx-auto max-w-7xl">
@@ -53,24 +106,36 @@ export default function GSTModifications() {
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              { icon: <FaCheckCircle className="text-3xl text-blue-600" />,
+              {
+                icon: <FaCheckCircle className="text-3xl text-blue-600" />,
                 title: "Legal Compliance",
-                desc: "Keep business details legally updated and accurate" },
-              { icon: <FaShieldAlt className="text-3xl text-blue-600" />,
+                desc: "Keep business details legally updated and accurate"
+              },
+              {
+                icon: <FaShieldAlt className="text-3xl text-blue-600" />,
                 title: "Avoid Penalties",
-                desc: "Prevent fines for outdated or incorrect information" },
-              { icon: <FaClipboardList className="text-3xl text-blue-600" />,
+                desc: "Prevent fines for outdated or incorrect information"
+              },
+              {
+                icon: <FaClipboardList className="text-3xl text-blue-600" />,
                 title: "Smooth Filing",
-                desc: "Ensure hassle-free GST return submissions" },
-              { icon: <FaUsers className="text-3xl text-blue-600" />,
+                desc: "Ensure hassle-free GST return submissions"
+              },
+              {
+                icon: <FaUsers className="text-3xl text-blue-600" />,
                 title: "Accurate Records",
-                desc: "Maintain correct government database records" },
-              { icon: <FaSync className="text-3xl text-blue-600" />,
+                desc: "Maintain correct government database records"
+              },
+              {
+                icon: <FaSync className="text-3xl text-blue-600" />,
                 title: "Stakeholder Trust",
-                desc: "Build credibility with customers and partners" },
-              { icon: <FaEdit className="text-3xl text-blue-600" />,
+                desc: "Build credibility with customers and partners"
+              },
+              {
+                icon: <FaEdit className="text-3xl text-blue-600" />,
                 title: "Business Growth",
-                desc: "Facilitate seamless business expansion and changes" }
+                desc: "Facilitate seamless business expansion and changes"
+              }
             ].map((item, index) => (
               <div key={index} className="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow border border-gray-200">
                 <div className="flex items-center mb-4">
@@ -146,18 +211,26 @@ export default function GSTModifications() {
             {/* Steps */}
             <div className="space-y-12">
               {[
-                { icon: <FaSearch className="text-2xl" />,
+                {
+                  icon: <FaSearch className="text-2xl" />,
                   title: "Consultation & Assessment",
-                  desc: "Discuss your modification requirements and gather necessary information" },
-                { icon: <FaFileUpload className="text-2xl" />,
+                  desc: "Discuss your modification requirements and gather necessary information"
+                },
+                {
+                  icon: <FaFileUpload className="text-2xl" />,
                   title: "Document Preparation",
-                  desc: "Prepare and organize all required documents for the modification" },
-                { icon: <FaFileSignature className="text-2xl" />,
+                  desc: "Prepare and organize all required documents for the modification"
+                },
+                {
+                  icon: <FaFileSignature className="text-2xl" />,
                   title: "Application Submission",
-                  desc: "Submit modification request through GST portal with digital signature" },
-                { icon: <FaCheckCircle className="text-2xl" />,
+                  desc: "Submit modification request through GST portal with digital signature"
+                },
+                {
+                  icon: <FaCheckCircle className="text-2xl" />,
                   title: "Approval & Confirmation",
-                  desc: "Receive approval confirmation and updated GST certificate" }
+                  desc: "Receive approval confirmation and updated GST certificate"
+                }
               ].map((item, index) => (
                 <div key={index} className={`flex flex-col md:flex-row items-center ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
                   <div className="flex-shrink-0 w-16 h-16 rounded-full bg-blue-600 text-white flex items-center justify-center text-2xl font-bold mb-4 md:mb-0 shadow-lg">
@@ -232,24 +305,36 @@ export default function GSTModifications() {
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              { icon: <FaClock className="text-3xl text-blue-600" />,
+              {
+                icon: <FaClock className="text-3xl text-blue-600" />,
                 title: "Quick Processing",
-                desc: "Fast and accurate modification updates" },
-              { icon: <FaUsers className="text-3xl text-blue-600" />,
+                desc: "Fast and accurate modification updates"
+              },
+              {
+                icon: <FaUsers className="text-3xl text-blue-600" />,
                 title: "Expert Consultants",
-                desc: "Certified GST professionals with deep knowledge" },
-              { icon: <FaClipboardList className="text-3xl text-blue-600" />,
+                desc: "Certified GST professionals with deep knowledge"
+              },
+              {
+                icon: <FaClipboardList className="text-3xl text-blue-600" />,
                 title: "Complete Documentation",
-                desc: "Hassle-free document preparation and submission" },
-              { icon: <FaShieldAlt className="text-3xl text-blue-600" />,
+                desc: "Hassle-free document preparation and submission"
+              },
+              {
+                icon: <FaShieldAlt className="text-3xl text-blue-600" />,
                 title: "Compliance Assurance",
-                desc: "Ensure all modifications meet GST requirements" },
-              { icon: <FaCheckCircle className="text-3xl text-blue-600" />,
+                desc: "Ensure all modifications meet GST requirements"
+              },
+              {
+                icon: <FaCheckCircle className="text-3xl text-blue-600" />,
                 title: "End-to-End Support",
-                desc: "Complete assistance from start to approval" },
-              { icon: <FaSync className="text-3xl text-blue-600" />,
+                desc: "Complete assistance from start to approval"
+              },
+              {
+                icon: <FaSync className="text-3xl text-blue-600" />,
                 title: "Trusted Service",
-                desc: "150+ satisfied clients with successful modifications" }
+                desc: "150+ satisfied clients with successful modifications"
+              }
             ].map((item, index) => (
               <div key={index} className="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow border border-gray-200 text-center">
                 <div className="flex justify-center mb-4">

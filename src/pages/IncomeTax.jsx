@@ -1,9 +1,57 @@
 import { motion } from "framer-motion";
+import { Helmet } from "react-helmet-async";
 import { FaFileInvoiceDollar, FaCheckCircle, FaUsers, FaClipboardList, FaCalculator, FaShieldAlt, FaClock, FaSearch, FaFileUpload, FaFileSignature } from "react-icons/fa";
 
 export default function IncomeTax() {
   return (
     <div className="min-h-screen">
+      <br />
+      <Helmet>
+        <title>Income Tax Filing Services in Andhra Pradesh | JM Rao Associates</title>
+        <meta name="description" content="Professional income tax filing services in Andhra Pradesh. Individual and business tax returns, tax planning, compliance assistance. Expert consultants, timely filing. Serving Narasapuram, Palakolu & across AP." />
+        <meta name="keywords" content="income tax filing Andhra Pradesh, income tax returns, tax consultants, tax planning, income tax filing Narasapuram, income tax filing Palakolu, tax compliance" />
+        <meta name="robots" content="index, follow" />
+        <meta name="author" content="JM Rao Associates" />
+        <link rel="canonical" href="https://jmraoassociates.com/income-tax" />
+      </Helmet>
+
+      <Helmet>
+        <script type="application/ld+json">
+          {`
+          {
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            "name": "JM Rao Associates",
+            "description": "Professional income tax filing services in Andhra Pradesh",
+            "url": "https://jmraoassociates.com/income-tax",
+            "telephone": "+91-8801221088",
+            "email": "jmraoassociates@gmail.com",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Narasapuram",
+              "addressRegion": "Andhra Pradesh",
+              "addressCountry": "IN"
+            },
+            "areaServed": [
+              {
+                "@type": "Place",
+                "name": "Andhra Pradesh"
+              },
+              {
+                "@type": "Place",
+                "name": "Narasapuram"
+              },
+              {
+                "@type": "Place",
+                "name": "Palakolu"
+              }
+            ],
+            "serviceType": ["Income Tax Filing Services", "Tax Consultancy"],
+            "priceRange": "$$"
+          }
+          `}
+        </script>
+      </Helmet>
 
       {/* Hero Section */}
       <div className="relative bg-gradient-to-r from-blue-700 to-blue-900 rounded-2xl overflow-hidden mb-16 mx-4 sm:mx-6 lg:mx-auto max-w-7xl">
