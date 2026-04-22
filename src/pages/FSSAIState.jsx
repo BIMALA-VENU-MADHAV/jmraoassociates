@@ -10,6 +10,7 @@ import {
   FaFileUpload,
   FaCreditCard,
   FaClipboardCheck,
+  FaUtensils,
 } from "react-icons/fa";
 
 export default function FSSAIState() {
@@ -63,23 +64,44 @@ export default function FSSAIState() {
   </script>
 </Helmet>
 
-      {/* Hero Section */}
-      <div className="relative bg-gradient-to-r from-blue-700 to-blue-900 rounded-2xl overflow-hidden mb-16 mx-4 sm:mx-6 lg:mx-auto max-w-7xl">
-        <div className="relative z-10 py-16 px-6 sm:py-24 sm:px-12 flex flex-col md:flex-row items-center">
-          <div className="md:w-1/2 text-white mb-8 md:mb-0">
-            <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }}>
-              <h1 className="text-4xl md:text-5xl font-extrabold mb-4 leading-tight">
-                FSSAI State License <span className="text-yellow-300"></span>
-              </h1>
-              <p className="text-xl md:text-2xl font-light mb-6">
-                Professional assistance for medium-scale food businesses
-              </p>
-            </motion.div>
-          </div>
-          <div className="md:w-1/2 flex justify-center">
-          </div>
+     {/* Hero Section */}
+<div className="relative bg-gradient-to-r from-blue-700 to-blue-900 rounded-2xl overflow-hidden mb-16 mx-4 sm:mx-6 lg:mx-auto max-w-7xl">
+  <div className="relative z-10 py-16 px-6 sm:py-24 sm:px-12 flex flex-col md:flex-row items-center">
+
+    {/* LEFT CONTENT */}
+    <div className="md:w-1/2 text-white mb-8 md:mb-0">
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+      >
+        <h1 className="text-4xl md:text-5xl font-extrabold mb-4 leading-tight">
+          FSSAI <span className="text-yellow-300">State License</span>
+        </h1>
+
+        <p className="text-xl md:text-2xl font-light mb-6">
+          Professional assistance for medium-scale food businesses
+        </p>
+
+        {/* BADGES */}
+        <div className="flex flex-wrap gap-2 text-sm">
+          <span className="bg-yellow-400 text-blue-900 px-3 py-1 rounded-full font-semibold">
+            ⚡ Fast Processing
+          </span>
+          <span className="bg-green-400 text-blue-900 px-3 py-1 rounded-full font-semibold">
+            ✔ State Govt Approved
+          </span>
         </div>
-      </div>
+      </motion.div>
+    </div>
+
+    {/* RIGHT ICON */}
+    <div className="md:w-1/2 flex justify-center">
+      <FaUtensils className="text-9xl text-yellow-300 opacity-80" />
+    </div>
+
+  </div>
+</div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 

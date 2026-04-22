@@ -84,7 +84,7 @@ const Footer = () => {
               <div className="lg:col-span-1">
                 <div className="mb-6">
                   <h2 className="text-3xl font-bold mb-2 bg-gradient-to-r from-blue-400 to-blue-200 bg-clip-text text-transparent">
-                    JM Rao Associates
+                    J M Rao Associates
                   </h2>
                   <p className="text-blue-200 text-sm mb-1">
                     Proprietor: <span className="text-white font-semibold">J. Manikyalarao</span>
@@ -159,7 +159,17 @@ const Footer = () => {
                     <div>
                       <div className="font-medium">Locations</div>
                       <div className="text-blue-200">
-                        Narasapuram & Palakolu,<br />Andhra Pradesh
+                        Flat No. 101, Sainadh Residency, Steamer Road<br />Narasapuram, Andhra Pradesh
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start space-x-3">
+                    <FaMapMarkerAlt className="text-blue-400 mt-1 flex-shrink-0" />
+                    <div>
+                      <div className="font-medium">Branches</div>
+                      <div className="text-blue-200">
+                        Narasapuram | Palakollu
                       </div>
                     </div>
                   </div>
@@ -169,7 +179,7 @@ const Footer = () => {
                     <div>
                       <div className="font-medium">Office Hours</div>
                       <div className="text-blue-200 text-sm">
-                        Mon - Sat: 10:00 AM - 6:00 PM<br />
+                        Mon - Sat: 10:00 AM - 7:00 PM<br />
                         Sunday: Closed
                       </div>
                     </div>
@@ -187,7 +197,7 @@ const Footer = () => {
                 <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 mb-6">
                   <iframe
                     title="Office Location"
-                    src="https://www.google.com/maps?q=Narasapuram&output=embed"
+                    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d239.16930675793472!2d81.70593332822388!3d16.439603733365317!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a37d9d8cd0a1639%3A0x472fa46bbf948417!2sJ.M.RAO%20ASSOCIATES!5e0!3m2!1sen!2sin!4v1776800275869!5m2!1sen!2sin"
                     className="w-full h-48 rounded-lg border-0"
                     loading="lazy"
                   />

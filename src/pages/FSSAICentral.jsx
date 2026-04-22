@@ -10,6 +10,7 @@ import {
   FaFileUpload,
   FaCreditCard,
   FaClipboardCheck,
+  FaUtensils,
 } from "react-icons/fa";
 
 export default function FSSAICentral() {
@@ -17,17 +18,17 @@ export default function FSSAICentral() {
     <div className="min-h-screen">
       <br />
       <Helmet>
-  <title>FSSAI Central License Services in Andhra Pradesh | JM Rao Associates</title>
-  <meta name="description" content="Complete FSSAI central license services in Andhra Pradesh. Manufacturing, trading, and large-scale operations. Expert guidance, fast processing. Serving Narasapuram, Palakolu & across AP." />
-  <meta name="keywords" content="FSSAI central license Andhra Pradesh, FSSAI license services, food license, FSSAI registration, FSSAI central license Narasapuram, FSSAI central license Palakolu, food business license" />
-  <meta name="robots" content="index, follow" />
-  <meta name="author" content="JM Rao Associates" />
-  <link rel="canonical" href="https://jmraoassociates.com/fssai-central" />
-</Helmet>
+        <title>FSSAI Central License Services in Andhra Pradesh | JM Rao Associates</title>
+        <meta name="description" content="Complete FSSAI central license services in Andhra Pradesh. Manufacturing, trading, and large-scale operations. Expert guidance, fast processing. Serving Narasapuram, Palakolu & across AP." />
+        <meta name="keywords" content="FSSAI central license Andhra Pradesh, FSSAI license services, food license, FSSAI registration, FSSAI central license Narasapuram, FSSAI central license Palakolu, food business license" />
+        <meta name="robots" content="index, follow" />
+        <meta name="author" content="JM Rao Associates" />
+        <link rel="canonical" href="https://jmraoassociates.com/fssai-central" />
+      </Helmet>
 
-<Helmet>
-  <script type="application/ld+json">
-    {`
+      <Helmet>
+        <script type="application/ld+json">
+          {`
     {
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
@@ -60,24 +61,45 @@ export default function FSSAICentral() {
       "priceRange": "$$"
     }
     `}
-  </script>
-</Helmet>
+        </script>
+      </Helmet>
 
       {/* Hero Section */}
       <div className="relative bg-gradient-to-r from-blue-700 to-blue-900 rounded-2xl overflow-hidden mb-16 mx-4 sm:mx-6 lg:mx-auto max-w-7xl">
         <div className="relative z-10 py-16 px-6 sm:py-24 sm:px-12 flex flex-col md:flex-row items-center">
+
+          {/* LEFT CONTENT */}
           <div className="md:w-1/2 text-white mb-8 md:mb-0">
-            <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }}>
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+            >
               <h1 className="text-4xl md:text-5xl font-extrabold mb-4 leading-tight">
-                FSSAI Central License <span className="text-yellow-300"></span>
+                FSSAI <span className="text-yellow-300">Central License</span>
               </h1>
+
               <p className="text-xl md:text-2xl font-light mb-6">
                 Expert assistance for large-scale food businesses
               </p>
+
+              {/* BADGES */}
+              <div className="flex flex-wrap gap-2 text-sm">
+                <span className="bg-yellow-400 text-blue-900 px-3 py-1 rounded-full font-semibold">
+                  ⚡ Fast Processing
+                </span>
+                <span className="bg-green-400 text-blue-900 px-3 py-1 rounded-full font-semibold">
+                  ✔ Central Govt Approved
+                </span>
+              </div>
             </motion.div>
           </div>
+
+          {/* RIGHT ICON */}
           <div className="md:w-1/2 flex justify-center">
+            <FaUtensils className="text-9xl text-yellow-300 opacity-80" />
           </div>
+
         </div>
       </div>
 
@@ -106,18 +128,26 @@ export default function FSSAICentral() {
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { icon: <FaFileSignature className="text-3xl text-blue-600" />,
+              {
+                icon: <FaFileSignature className="text-3xl text-blue-600" />,
                 title: "National Compliance",
-                desc: "Mandatory for large-scale operations" },
-              { icon: <FaUsers className="text-3xl text-blue-600" />,
+                desc: "Mandatory for large-scale operations"
+              },
+              {
+                icon: <FaUsers className="text-3xl text-blue-600" />,
                 title: "Brand Credibility",
-                desc: "Highest level of food safety certification" },
-              { icon: <FaShoppingCart className="text-3xl text-blue-600" />,
+                desc: "Highest level of food safety certification"
+              },
+              {
+                icon: <FaShoppingCart className="text-3xl text-blue-600" />,
                 title: "Global Markets",
-                desc: "Required for import/export activities" },
-              { icon: <FaChartLine className="text-3xl text-blue-600" />,
+                desc: "Required for import/export activities"
+              },
+              {
+                icon: <FaChartLine className="text-3xl text-blue-600" />,
                 title: "Business Expansion",
-                desc: "Enables multi-state and international operations" }
+                desc: "Enables multi-state and international operations"
+              }
             ].map((item, index) => (
               <div key={index} className="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow border border-gray-200">
                 <div className="flex items-center mb-4">
@@ -193,24 +223,36 @@ export default function FSSAICentral() {
             {/* Steps */}
             <div className="space-y-12">
               {[
-                { icon: <FaSearch className="text-2xl" />,
+                {
+                  icon: <FaSearch className="text-2xl" />,
                   title: "Business Evaluation",
-                  desc: "Detailed assessment of your operations and Central License requirement" },
-                { icon: <FaFileUpload className="text-2xl" />,
+                  desc: "Detailed assessment of your operations and Central License requirement"
+                },
+                {
+                  icon: <FaFileUpload className="text-2xl" />,
                   title: "Comprehensive Documentation",
-                  desc: "Assistance in preparing extensive documentation for Central Authority" },
-                { icon: <FaFileSignature className="text-2xl" />,
+                  desc: "Assistance in preparing extensive documentation for Central Authority"
+                },
+                {
+                  icon: <FaFileSignature className="text-2xl" />,
                   title: "Application Submission",
-                  desc: "Filing Form-B with FSSAI Central Licensing Authority" },
-                { icon: <FaCreditCard className="text-2xl" />,
+                  desc: "Filing Form-B with FSSAI Central Licensing Authority"
+                },
+                {
+                  icon: <FaCreditCard className="text-2xl" />,
                   title: "Fee Processing",
-                  desc: "Guidance through Central Government fee payment procedures" },
-                { icon: <FaClipboardCheck className="text-2xl" />,
+                  desc: "Guidance through Central Government fee payment procedures"
+                },
+                {
+                  icon: <FaClipboardCheck className="text-2xl" />,
                   title: "Inspection & Verification",
-                  desc: "Support during facility inspection by Central Authority" },
-                { icon: <FaShieldAlt className="text-2xl" />,
+                  desc: "Support during facility inspection by Central Authority"
+                },
+                {
+                  icon: <FaShieldAlt className="text-2xl" />,
                   title: "License Issuance",
-                  desc: "Receive your Central License with ongoing compliance monitoring" }
+                  desc: "Receive your Central License with ongoing compliance monitoring"
+                }
               ].map((item, index) => (
                 <div key={index} className={`flex flex-col md:flex-row items-center ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
                   <div className="flex-shrink-0 w-16 h-16 rounded-full bg-blue-600 text-white flex items-center justify-center text-2xl font-bold mb-4 md:mb-0 shadow-lg">

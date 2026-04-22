@@ -37,11 +37,11 @@ export default function About() {
     <div className="min-h-screen">
       <br />
       <Helmet>
-        <title>About JM Rao Associates - Tax Consultancy in Andhra Pradesh</title>
-        <meta name="description" content="Learn about JM Rao Associates, a trusted tax consultancy firm in Andhra Pradesh offering expert tax services for businesses and individuals in Narasapuram and Palakolu." />
+        <title>About J M Rao Associates - Tax Consultancy in Andhra Pradesh</title>
+        <meta name="description" content="Learn about J M Rao Associates, a trusted tax consultancy firm in Andhra Pradesh offering expert tax services for businesses and individuals in Narasapuram and Palakolu." />
         <meta name="keywords" content="tax consultancy, Andhra Pradesh, GST registration, income tax returns, TDS, professional tax, tax audit, PAN registration, TAN, FSSAI, MSME, Narasapuram, Palakolu" />
         <meta name="robots" content="index, follow" />
-        <meta name="author" content="JM Rao Associates" />
+        <meta name="author" content="J M Rao Associates" />
         <link rel="canonical" href="https://jmraoassociates.com/about" />
       </Helmet>
 
@@ -51,7 +51,7 @@ export default function About() {
           {
             "@context": "https://schema.org",
             "@type": "LocalBusiness",
-            "name": "JM Rao Associates",
+            "name": "J M Rao Associates",
             "description": "Trusted tax consultancy firm in Andhra Pradesh",
             "url": "https://jmraoassociates.com/about",
             "telephone": "+91-8801221088",
@@ -113,11 +113,11 @@ export default function About() {
         <section className="mb-16 bg-white rounded-xl shadow-md p-8 border border-gray-100">
           <h2 className="text-3xl font-bold text-blue-800 mb-6 flex items-center">
             <FaAward className="mr-3 text-blue-600" />
-            About JM Rao Associates
+            About J M Rao Associates
           </h2>
           <div className="prose max-w-none text-gray-700">
             <p className="text-lg leading-relaxed mb-4">
-              Established in 2017, JM Rao Associates is a trusted tax consultancy firm serving businesses and individuals in Narasapuram and Palakolu. We are more than just tax consultants – we are your financial partners dedicated to building confidence and ensuring compliance.
+              Established in 2017, J M Rao Associates is a trusted tax consultancy firm serving businesses and individuals in Narasapuram and Palakolu. We are more than just tax consultants – we are your financial partners dedicated to building confidence and ensuring compliance.
             </p>
             <p className="text-lg leading-relaxed">
               Our focus extends beyond mere compliance. We provide clarity, accuracy, and long-term support to help you navigate the complex world of taxation with confidence. Whether you're a business owner, professional, or individual, we offer practical solutions tailored to your specific needs.

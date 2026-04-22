@@ -27,7 +27,7 @@ export default function Home() {
       <br />
 
       <Helmet>
-        <title>Home - Tax & Compliance Services | JM Rao Associates</title>
+        <title>Home - Tax & Compliance Services | J M Rao Associates</title>
         <meta
           name="description"
           content="Professional tax consultancy services in Andhra Pradesh. GST, Income Tax, TDS, PAN, TAN, MSME, FSSAI registration. Serving Narasapuram, Palakolu & across AP."
@@ -174,10 +174,10 @@ export default function Home() {
             <div>
               <h2 className="text-3xl font-bold text-blue-800 mb-6 flex items-center">
                 <FaHandshake className="mr-3 text-blue-600" />
-                About JM Rao Associates
+                About J M Rao Associates
               </h2>
               <p className="text-gray-700 mb-4 leading-relaxed">
-                Established in 2017, JM Rao Associates is your trusted partner for GST, Income Tax, TDS, and comprehensive accounting services. We serve over 150 clients across Narasapuram and Palakolu with personalized, expert guidance.
+                Established in 2017, J M Rao Associates is your trusted partner for GST, Income Tax, TDS, and comprehensive accounting services. We serve over 150 clients across Narasapuram and Palakolu with personalized, expert guidance.
               </p>
               <p className="text-gray-700 mb-6 leading-relaxed">
                 Our commitment goes beyond compliance – we build lasting relationships through clarity, accuracy, and unwavering trust. Whether you're a startup or an established business, we provide practical solutions tailored to your needs.

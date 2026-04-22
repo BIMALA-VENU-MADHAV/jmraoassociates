@@ -1,158 +1,153 @@
+import { motion } from "framer-motion";
 import { Helmet } from "react-helmet-async";
+import {
+  FaShieldAlt,
+  FaUserLock,
+  FaDatabase,
+  FaFileAlt,
+} from "react-icons/fa";
 
 export default function PrivacyPolicy() {
+  const sections = [
+    {
+      title: "1. Information We Collect",
+      icon: <FaDatabase />,
+      content: [
+        "Personal details (Name, phone number, email)",
+        "PAN, TAN, Aadhaar, and GST information",
+        "Financial documents and business records",
+        "Bank details required for compliance",
+      ],
+    },
+    {
+      title: "2. Purpose of Data Usage",
+      icon: <FaFileAlt />,
+      content: [
+        "GST registration, filing, and amendments",
+        "Income tax returns and audits",
+        "TDS compliance and accounting services",
+        "Communication and updates",
+      ],
+    },
+    {
+      title: "3. Confidentiality Commitment",
+      icon: <FaUserLock />,
+      text: "We maintain strict confidentiality of all client data. Your information is never shared with unauthorized parties.",
+    },
+    {
+      title: "4. Data Security Measures",
+      icon: <FaShieldAlt />,
+      text: "We use secure storage, restricted access, and monitoring systems to protect your data.",
+    },
+  ];
+
   return (
-    <div className="bg-gray-50">
+    <div className="bg-gray-50 min-h-screen">
+
+      <Helmet>
+        <title>Privacy Policy | JM Rao Associates</title>
+      </Helmet>
 
       {/* HERO */}
-      <section className="bg-gradient-to-r from-blue-900 to-blue-600 text-white py-20 text-center">
-        <h1 className="text-4xl md:text-5xl font-bold">
-          Privacy Policy
-        </h1>
-        <p className="mt-3 text-blue-100">
-          JM Rao Associates – Protecting Your Financial & Personal Data
-        </p>
-      </section>
+      <div className="bg-gradient-to-r from-blue-700 to-blue-900 rounded-2xl overflow-hidden mb-16 mx-4 sm:mx-6 lg:mx-auto max-w-7xl">
+        <div className="py-16 px-6 sm:py-24 sm:px-12 text-center text-white">
+
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+          >
+            <h1 className="text-4xl md:text-5xl font-extrabold mb-4">
+              Privacy <span className="text-yellow-300">Policy</span>
+            </h1>
+
+            <p className="text-lg md:text-xl mb-6">
+              Protecting Your Financial & Personal Data
+            </p>
+
+            {/* BADGES */}
+            <div className="flex justify-center gap-3 flex-wrap text-sm">
+              <span className="bg-yellow-400 text-blue-900 px-3 py-1 rounded-full font-semibold">
+                🔒 Secure Data
+              </span>
+              <span className="bg-green-400 text-blue-900 px-3 py-1 rounded-full font-semibold">
+                ✔ 100% Confidential
+              </span>
+            </div>
+          </motion.div>
+
+        </div>
+      </div>
 
       {/* CONTENT */}
-      <div className="max-w-5xl mx-auto px-6 py-16">
-
-        <Helmet>
-          <title>Privacy Policy | JM Rao Associates</title>
-        </Helmet>
+      <div className="max-w-5xl mx-auto px-6 pb-16">
 
         {/* INTRO */}
-        <div className="bg-white p-8 rounded-2xl shadow-lg mb-10">
-          <p className="text-gray-600 leading-relaxed">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="bg-white p-8 rounded-2xl shadow-lg mb-10 border"
+        >
+          <p className="text-gray-600 leading-relaxed text-lg">
             At JM Rao Associates, we understand the importance of confidentiality 
-            when handling financial and personal information. As a professional 
-            tax consultancy firm serving clients across Andhra Pradesh, we are 
-            committed to safeguarding all client data with the highest level of 
-            security and integrity.
+            when handling financial and personal information. We are committed 
+            to safeguarding all client data with the highest level of security 
+            and integrity.
           </p>
-        </div>
+        </motion.div>
 
+        {/* SECTIONS */}
         <div className="space-y-8">
+          {sections.map((sec, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.1 }}
+              whileHover={{ scale: 1.02 }}
+              className="bg-white p-6 rounded-xl shadow border hover:shadow-lg transition"
+            >
+              <div className="flex items-center mb-3">
+                <div className="p-2 bg-blue-100 rounded-full mr-3 text-blue-600">
+                  {sec.icon}
+                </div>
+                <h2 className="text-lg font-semibold text-blue-700">
+                  {sec.title}
+                </h2>
+              </div>
 
-          {/* SECTION */}
-          <div className="bg-white p-6 rounded-xl shadow">
-            <h2 className="text-xl font-semibold text-blue-700 mb-2">
-              1. Information We Collect
-            </h2>
-            <p className="text-gray-600">
-              We collect information necessary to provide our services, including:
-            </p>
-            <ul className="list-disc pl-6 mt-2 text-gray-600 space-y-1">
-              <li>Personal details (Name, phone number, email)</li>
-              <li>PAN, TAN, Aadhaar, and GST information</li>
-              <li>Financial documents and business records</li>
-              <li>Bank details required for compliance</li>
-            </ul>
-          </div>
+              {sec.content && (
+                <ul className="list-disc pl-6 text-gray-600 space-y-1">
+                  {sec.content.map((item, i) => (
+                    <li key={i}>{item}</li>
+                  ))}
+                </ul>
+              )}
 
-          {/* SECTION */}
-          <div className="bg-white p-6 rounded-xl shadow">
-            <h2 className="text-xl font-semibold text-blue-700 mb-2">
-              2. Purpose of Data Usage
-            </h2>
-            <p className="text-gray-600">
-              Your information is used strictly for:
-            </p>
-            <ul className="list-disc pl-6 mt-2 text-gray-600 space-y-1">
-              <li>GST registration, filing, and amendments</li>
-              <li>Income tax returns and audits</li>
-              <li>TDS compliance and accounting services</li>
-              <li>Communication and updates related to your services</li>
-            </ul>
-          </div>
-
-          {/* SECTION */}
-          <div className="bg-white p-6 rounded-xl shadow">
-            <h2 className="text-xl font-semibold text-blue-700 mb-2">
-              3. Confidentiality Commitment
-            </h2>
-            <p className="text-gray-600">
-              We maintain strict confidentiality of all client data. Your information 
-              is never shared with unauthorized parties and is handled only by 
-              trained professionals within our firm.
-            </p>
-          </div>
-
-          {/* SECTION */}
-          <div className="bg-white p-6 rounded-xl shadow">
-            <h2 className="text-xl font-semibold text-blue-700 mb-2">
-              4. Data Security Measures
-            </h2>
-            <p className="text-gray-600">
-              We implement technical and organizational safeguards to protect your 
-              data, including secure storage, restricted access, and regular monitoring 
-              of systems to prevent unauthorized use.
-            </p>
-          </div>
-
-          {/* SECTION */}
-          <div className="bg-white p-6 rounded-xl shadow">
-            <h2 className="text-xl font-semibold text-blue-700 mb-2">
-              5. Data Sharing Policy
-            </h2>
-            <p className="text-gray-600">
-              Your data may only be shared:
-            </p>
-            <ul className="list-disc pl-6 mt-2 text-gray-600 space-y-1">
-              <li>With government authorities for compliance</li>
-              <li>When required by law</li>
-              <li>With your explicit consent</li>
-            </ul>
-          </div>
-
-          {/* SECTION */}
-          <div className="bg-white p-6 rounded-xl shadow">
-            <h2 className="text-xl font-semibold text-blue-700 mb-2">
-              6. Data Retention
-            </h2>
-            <p className="text-gray-600">
-              We retain your data only for as long as required to meet legal, regulatory, 
-              and business obligations.
-            </p>
-          </div>
-
-          {/* SECTION */}
-          <div className="bg-white p-6 rounded-xl shadow">
-            <h2 className="text-xl font-semibold text-blue-700 mb-2">
-              7. Your Rights
-            </h2>
-            <p className="text-gray-600">
-              You have the right to access, correct, or request deletion of your data 
-              by contacting us at any time.
-            </p>
-          </div>
-
-          {/* SECTION */}
-          <div className="bg-white p-6 rounded-xl shadow">
-            <h2 className="text-xl font-semibold text-blue-700 mb-2">
-              8. Updates to Policy
-            </h2>
-            <p className="text-gray-600">
-              This policy may be updated periodically to reflect changes in legal 
-              or business requirements.
-            </p>
-          </div>
-
-          {/* CONTACT */}
-          <div className="bg-blue-600 text-white p-6 rounded-xl shadow">
-            <h2 className="text-xl font-semibold mb-2">
-              Contact Information
-            </h2>
-            <p>
-              JM Rao Associates<br />
-              Andhra Pradesh<br />
-              📞 +91 8801221088<br />
-              📧 jmraoassociates@gmail.com
-            </p>
-          </div>
-
+              {sec.text && (
+                <p className="text-gray-600">{sec.text}</p>
+              )}
+            </motion.div>
+          ))}
         </div>
 
+        {/* CONTACT */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="bg-gradient-to-r from-blue-700 to-blue-900 text-white p-8 rounded-xl shadow-lg mt-12 text-center"
+        >
+          <h2 className="text-xl font-semibold mb-2">
+            Contact Information
+          </h2>
+          <p>
+            JM Rao Associates <br />
+            Andhra Pradesh <br />
+            📞 +91 8801221088 <br />
+            📧 jmraoassociates@gmail.com
+          </p>
+        </motion.div>
+
+        {/* FOOTER TEXT */}
         <p className="text-sm text-gray-500 mt-10 text-center">
           Last updated: {new Date().getFullYear()}
         </p>
