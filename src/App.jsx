@@ -39,6 +39,8 @@ import TAN from "./pages/TAN";
 import MSME from "./pages/MSME";
 import { i } from "framer-motion/client";
 
+import NotFound from "./pages/NotFound";
+
 function AnimatedRoutes() {
   const location = useLocation();
 
@@ -82,6 +84,8 @@ function AnimatedRoutes() {
           <Route path="/tan-registration" element={<TAN />} />
           <Route path="/msme-registration" element={<MSME />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+
+          <Route path="*" element={<NotFound />} />
  
         </Routes>
       </motion.div>

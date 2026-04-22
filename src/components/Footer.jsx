@@ -16,6 +16,7 @@ import {
 } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 const Footer = () => {
   const footerLinks = [
@@ -61,6 +62,34 @@ const Footer = () => {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
+
+  const location = useLocation();
+
+  const validRoutes = [
+    "/",
+    "/about-us",
+    "/contact-us",
+    "/gst",
+    "/gst-registration",
+    "/gst-return-filing",
+    "/gst-modifications",
+    "/tax",
+    "/income-tax-filing",
+    "/income-tax-audit",
+    "/tds-returns",
+    "/professional-tax-registration",
+    "/fssai",
+    "/fssai-registration",
+    "/fssai-state-license",
+    "/fssai-central-license",
+    "/registration",
+    "/pan-registration",
+    "/tan-registration",
+    "/msme-registration",
+    "/privacy-policy"
+  ];
+
+  if (!validRoutes.includes(location.pathname)) return null;
 
   return (
     <footer className="bg-gradient-to-b from-gray-900 via-blue-900 to-blue-800 text-white relative overflow-hidden">

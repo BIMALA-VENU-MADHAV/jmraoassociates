@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 import { FaBars, FaTimes, FaChevronDown, FaPhone, FaWhatsapp } from "react-icons/fa";
 
@@ -17,6 +18,35 @@ export default function Navbar() {
     setMenuOpen(false);
     setMobileOpen({ services: false });
   };
+
+  const location = useLocation();
+
+  const validRoutes = [
+    "/",
+    "/about-us",
+    "/contact-us",
+    "/gst",
+    "/gst-registration",
+    "/gst-return-filing",
+    "/gst-modifications",
+    "/tax",
+    "/income-tax-filing",
+    "/income-tax-audit",
+    "/tds-returns",
+    "/professional-tax-registration",
+    "/fssai",
+    "/fssai-registration",
+    "/fssai-state-license",
+    "/fssai-central-license",
+    "/registration",
+    "/pan-registration",
+    "/tan-registration",
+    "/msme-registration",
+    "/privacy-policy"
+  ];
+
+  // if route not in list → hide navbar
+  if (!validRoutes.includes(location.pathname)) return null;
 
   return (
     <nav className="bg-white shadow-lg sticky top-0 z-50 border-b border-gray-100">
