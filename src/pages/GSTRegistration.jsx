@@ -7,11 +7,11 @@ export default function GSTRegistration() {
     <div className="min-h-screen">
       <br />
       <Helmet>
-        <title>GST Registration Services in Andhra Pradesh | JM Rao Associates</title>
+        <title>GST Registration Services in Andhra Pradesh | J M Rao Associates</title>
         <meta name="description" content="Get fast and reliable GST registration services in Andhra Pradesh. Expert consultants, complete compliance, 2-3 days processing. Serving Narasapuram, Palakolu & across AP." />
         <meta name="keywords" content="GST registration Andhra Pradesh, GST registration services, GST registration consultants, GST registration Narasapuram, GST registration Palakolu, GST compliance, GST registration online" />
         <meta name="robots" content="index, follow" />
-        <meta name="author" content="JM Rao Associates" />
+        <meta name="author" content="J M Rao Associates" />
         <link rel="canonical" href="https://jmraoassociates.com/gst-registration" />
       </Helmet>
 
@@ -21,7 +21,7 @@ export default function GSTRegistration() {
           {
             "@context": "https://schema.org",
             "@type": "LocalBusiness",
-            "name": "JM Rao Associates",
+            "name": "J M Rao Associates",
             "description": "Professional GST registration services in Andhra Pradesh",
             "url": "https://jmraoassociates.com/gst-registration",
             "telephone": "+91-8801221088",
@@ -290,7 +290,7 @@ export default function GSTRegistration() {
         {/* Why Choose Us Section */}
         <section className="mb-16">
           <h2 className="text-3xl font-bold text-center text-blue-800 mb-12">
-            Why Choose <span className="text-blue-600">JM Rao Associates</span>
+            Why Choose <span className="text-blue-600">J M Rao Associates</span>
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[

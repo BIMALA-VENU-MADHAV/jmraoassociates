@@ -45,7 +45,7 @@ export default function PrivacyPolicy() {
     <div className="bg-gray-50 min-h-screen">
 
       <Helmet>
-        <title>Privacy Policy | JM Rao Associates</title>
+        <title>Privacy Policy | J M Rao Associates</title>
       </Helmet>
 
       {/* HERO */}
@@ -88,7 +88,7 @@ export default function PrivacyPolicy() {
           className="bg-white p-8 rounded-2xl shadow-lg mb-10 border"
         >
           <p className="text-gray-600 leading-relaxed text-lg">
-            At JM Rao Associates, we understand the importance of confidentiality 
+            At J M Rao Associates, we understand the importance of confidentiality 
             when handling financial and personal information. We are committed 
             to safeguarding all client data with the highest level of security 
             and integrity.
@@ -140,7 +140,7 @@ export default function PrivacyPolicy() {
             Contact Information
           </h2>
           <p>
-            JM Rao Associates <br />
+            J M Rao Associates <br />
             Andhra Pradesh <br />
             📞 +91 8801221088 <br />
             📧 jmraoassociates@gmail.com

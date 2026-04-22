@@ -18,11 +18,11 @@ export default function FSSAIState() {
     <div className="min-h-screen">
       <br />
       <Helmet>
-  <title>FSSAI State License Services in Andhra Pradesh | JM Rao Associates</title>
+  <title>FSSAI State License Services in Andhra Pradesh | J M Rao Associates</title>
   <meta name="description" content="Complete FSSAI state license services in Andhra Pradesh. Medium-scale food businesses and operations. Expert guidance, fast processing. Serving Narasapuram, Palakolu & across AP." />
   <meta name="keywords" content="FSSAI state license Andhra Pradesh, FSSAI license services, food license, FSSAI state license Narasapuram, FSSAI state license Palakolu, food business license Andhra Pradesh" />
   <meta name="robots" content="index, follow" />
-  <meta name="author" content="JM Rao Associates" />
+  <meta name="author" content="J M Rao Associates" />
   <link rel="canonical" href="https://jmraoassociates.com/fssai-state" />
 </Helmet>
 
@@ -251,7 +251,7 @@ export default function FSSAIState() {
             Ready to Get Your FSSAI State License?
           </h2>
           <p className="text-xl mb-8 max-w-2xl mx-auto opacity-90">
-            Our Hyderabad-based experts make the process simple, fast, and hassle-free.
+            Our J M Rao Associates experts make the process simple, fast, and hassle-free.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <a

@@ -8,11 +8,11 @@ export default function TaxAudit() {
       <br />
 
       <Helmet>
-  <title>Tax Audit Services in Andhra Pradesh | JM Rao Associates</title>
+  <title>Tax Audit Services in Andhra Pradesh | J M Rao Associates</title>
   <meta name="description" content="Comprehensive tax audit services in Andhra Pradesh. Statutory audits, internal audits, compliance reviews. Expert auditors, detailed reporting. Serving Narasapuram, Palakolu & across AP." />
   <meta name="keywords" content="tax audit Andhra Pradesh, tax audit services, statutory audit, internal audit, tax compliance audit, tax audit Narasapuram, tax audit Palakolu" />
   <meta name="robots" content="index, follow" />
-  <meta name="author" content="JM Rao Associates" />
+  <meta name="author" content="J M Rao Associates" />
   <link rel="canonical" href="https://jmraoassociates.com/tax-audit" />
 </Helmet>
 
@@ -22,7 +22,7 @@ export default function TaxAudit() {
     {
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
-      "name": "JM Rao Associates",
+      "name": "J M Rao Associates",
       "description": "Professional tax audit services in Andhra Pradesh",
       "url": "https://jmraoassociates.com/tax-audit",
       "telephone": "+91-8801221088",
@@ -281,7 +281,7 @@ export default function TaxAudit() {
         {/* Why Choose Us Section */}
         <section className="mb-16">
           <h2 className="text-3xl font-bold text-center text-blue-800 mb-12">
-            Why Choose <span className="text-blue-600">JM Rao Associates</span>
+            Why Choose <span className="text-blue-600">J M Rao Associates</span>
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[

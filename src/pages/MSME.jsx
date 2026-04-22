@@ -7,11 +7,11 @@ export default function MSME() {
     <div className="min-h-screen">
       <br />
       <Helmet>
-  <title>MSME Registration Services in Andhra Pradesh | JM Rao Associates</title>
+  <title>MSME Registration Services in Andhra Pradesh | J M Rao Associates</title>
 
   <meta
     name="description"
-    content="Register your business under MSME (Udyam Registration) in Andhra Pradesh. Get government benefits, subsidies, and easy loans with JM Rao Associates. Serving Narasapuram, Palakolu & across AP."
+    content="Register your business under MSME (Udyam Registration) in Andhra Pradesh. Get government benefits, subsidies, and easy loans with J M Rao Associates. Serving Narasapuram, Palakolu & across AP."
   />
 
   <meta

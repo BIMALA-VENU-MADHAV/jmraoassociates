@@ -7,11 +7,11 @@ export default function IncomeTax() {
     <div className="min-h-screen">
       <br />
       <Helmet>
-        <title>Income Tax Filing Services in Andhra Pradesh | JM Rao Associates</title>
+        <title>Income Tax Filing Services in Andhra Pradesh | J M Rao Associates</title>
         <meta name="description" content="Professional income tax filing services in Andhra Pradesh. Individual and business tax returns, tax planning, compliance assistance. Expert consultants, timely filing. Serving Narasapuram, Palakolu & across AP." />
         <meta name="keywords" content="income tax filing Andhra Pradesh, income tax returns, tax consultants, tax planning, income tax filing Narasapuram, income tax filing Palakolu, tax compliance" />
         <meta name="robots" content="index, follow" />
-        <meta name="author" content="JM Rao Associates" />
+        <meta name="author" content="J M Rao Associates" />
         <link rel="canonical" href="https://jmraoassociates.com/income-tax" />
       </Helmet>
 
@@ -277,7 +277,7 @@ export default function IncomeTax() {
         {/* Why Choose Us Section */}
         <section className="mb-16">
           <h2 className="text-3xl font-bold text-center text-blue-800 mb-12">
-            Why Choose <span className="text-blue-600">JM Rao Associates</span>
+            Why Choose <span className="text-blue-600">J M Rao Associates</span>
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[

@@ -39,7 +39,7 @@ export default function GST() {
       <br />
 
       <Helmet>
-        <title>GST Services in Andhra Pradesh | JM Rao Associates</title>
+        <title>GST Services in Andhra Pradesh | J M Rao Associates</title>
         <meta
           name="description"
           content="Complete GST services including registration, returns filing, modifications & consultation."

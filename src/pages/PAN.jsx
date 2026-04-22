@@ -7,11 +7,11 @@ export default function PAN() {
     <div className="min-h-screen">
       <br />
       <Helmet>
-  <title>PAN Registration Services in Andhra Pradesh | JM Rao Associates</title>
+  <title>PAN Registration Services in Andhra Pradesh | J M Rao Associates</title>
 
   <meta
     name="description"
-    content="Apply for PAN card registration in Andhra Pradesh with JM Rao Associates. Fast processing, expert assistance, and complete support. Serving Narasapuram, Palakolu & across AP."
+    content="Apply for PAN card registration in Andhra Pradesh with J M Rao Associates. Fast processing, expert assistance, and complete support. Serving Narasapuram, Palakolu & across AP."
   />
 
   <meta

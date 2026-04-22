@@ -229,21 +229,21 @@ export default function Home() {
                 icon: <FaFileInvoiceDollar className="text-4xl text-blue-600" />,
                 title: "GST Services",
                 desc: "Complete GST solutions including registration, returns, compliance, and amendments for all business types.",
-                link: "/gst-registration",
+                link: "/gst",
                 features: ["Registration", "Monthly/Quarterly Returns", "Compliance Support", "Amendments"]
               },
               {
                 icon: <FaBalanceScale className="text-4xl text-blue-600" />,
                 title: "Tax Services",
                 desc: "Comprehensive tax solutions covering income tax filing, audits, TDS, and professional tax services.",
-                link: "/income-tax-filing",
+                link: "/tax",
                 features: ["Income Tax Filing", "Tax Audit", "TDS Returns", "Professional Tax"]
               },
               {
                 icon: <FaBuilding className="text-4xl text-blue-600" />,
                 title: "Business Registrations",
                 desc: "Complete business registration services including PAN, TAN, MSME, FSSAI, and other essential registrations.",
-                link: "/pan-registration",
+                link: "/registration",
                 features: ["PAN/TAN", "MSME Registration", "FSSAI License", "Company Registration"]
               }
             ].map((service, index) => (
@@ -360,7 +360,7 @@ export default function Home() {
             Need Expert Tax Assistance?
           </h2>
           <p className="text-xl mb-8 max-w-2xl mx-auto opacity-90">
-            Contact JM Rao Associates for reliable, professional tax and compliance services.
+            Contact J M Rao Associates for reliable, professional tax and compliance services.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Link

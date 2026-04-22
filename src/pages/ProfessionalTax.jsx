@@ -7,11 +7,11 @@ export default function ProfessionalTax() {
     <div className="min-h-screen">
       <br />
       <Helmet>
-  <title>Professional Tax Registration Services in Andhra Pradesh | JM Rao Associates</title>
+  <title>Professional Tax Registration Services in Andhra Pradesh | J M Rao Associates</title>
   <meta name="description" content="Professional tax registration and renewal services in Andhra Pradesh. Complete compliance, timely renewals, penalty assistance. Expert consultants. Serving Narasapuram, Palakolu & across AP." />
   <meta name="keywords" content="professional tax Andhra Pradesh, professional tax registration, professional tax renewal, PT registration, professional tax compliance, professional tax Narasapuram, professional tax Palakolu" />
   <meta name="robots" content="index, follow" />
-  <meta name="author" content="JM Rao Associates" />
+  <meta name="author" content="J M Rao Associates" />
   <link rel="canonical" href="https://jmraoassociates.com/professional-tax" />
 </Helmet>
 
@@ -292,7 +292,7 @@ export default function ProfessionalTax() {
         {/* Why Choose Us Section */}
         <section className="mb-16">
           <h2 className="text-3xl font-bold text-center text-blue-800 mb-12">
-            Why Choose <span className="text-blue-600">JM Rao Associates</span>
+            Why Choose <span className="text-blue-600">J M Rao Associates</span>
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[

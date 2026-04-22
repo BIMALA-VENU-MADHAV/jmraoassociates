@@ -18,11 +18,11 @@ export default function FSSAIRegistration() {
     <div className="min-h-screen">
       <br />
       <Helmet>
-        <title>FSSAI Registration Services in Andhra Pradesh | JM Rao Associates</title>
+        <title>FSSAI Registration Services in Andhra Pradesh | J M Rao Associates</title>
         <meta name="description" content="Complete FSSAI registration services in Andhra Pradesh. Basic registration for small food businesses. Expert guidance, fast processing. Serving Narasapuram, Palakolu & across AP." />
         <meta name="keywords" content="FSSAI registration Andhra Pradesh, FSSAI registration services, food license, FSSAI basic registration, FSSAI registration Narasapuram, FSSAI registration Palakolu, food business registration" />
         <meta name="robots" content="index, follow" />
-        <meta name="author" content="JM Rao Associates" />
+        <meta name="author" content="J M Rao Associates" />
         <link rel="canonical" href="https://jmraoassociates.com/fssai-registration" />
       </Helmet>
 
@@ -276,7 +276,7 @@ export default function FSSAIRegistration() {
             Ready to Get Your FSSAI License?
           </h2>
           <p className="text-xl mb-8 max-w-2xl mx-auto opacity-90">
-            Our Hyderabad-based experts make the process simple, fast, and hassle-free.
+            Our J M Rao Associates experts make the process simple, fast, and hassle-free.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <a

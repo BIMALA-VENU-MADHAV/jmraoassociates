@@ -37,7 +37,7 @@ export default function FSSAI() {
       <br />
 
       <Helmet>
-        <title>FSSAI Food License Services | JM Rao Associates</title>
+        <title>FSSAI Food License Services | J M Rao Associates</title>
       </Helmet>
 
       {/* HERO */}

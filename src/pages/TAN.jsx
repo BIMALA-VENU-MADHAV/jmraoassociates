@@ -7,11 +7,11 @@ export default function TAN() {
     <div className="min-h-screen">
       <br />
       <Helmet>
-  <title>TAN Registration Services in Andhra Pradesh | JM Rao Associates</title>
+  <title>TAN Registration Services in Andhra Pradesh | J M Rao Associates</title>
 
   <meta
     name="description"
-    content="Get TAN registration services in Andhra Pradesh with JM Rao Associates. Quick application, expert support, and complete compliance. Serving Narasapuram, Palakolu & across AP."
+    content="Get TAN registration services in Andhra Pradesh with J M Rao Associates. Quick application, expert support, and complete compliance. Serving Narasapuram, Palakolu & across AP."
   />
 
   <meta

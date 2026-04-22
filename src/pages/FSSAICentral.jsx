@@ -18,11 +18,11 @@ export default function FSSAICentral() {
     <div className="min-h-screen">
       <br />
       <Helmet>
-        <title>FSSAI Central License Services in Andhra Pradesh | JM Rao Associates</title>
+        <title>FSSAI Central License Services in Andhra Pradesh | J M Rao Associates</title>
         <meta name="description" content="Complete FSSAI central license services in Andhra Pradesh. Manufacturing, trading, and large-scale operations. Expert guidance, fast processing. Serving Narasapuram, Palakolu & across AP." />
         <meta name="keywords" content="FSSAI central license Andhra Pradesh, FSSAI license services, food license, FSSAI registration, FSSAI central license Narasapuram, FSSAI central license Palakolu, food business license" />
         <meta name="robots" content="index, follow" />
-        <meta name="author" content="JM Rao Associates" />
+        <meta name="author" content="J M Rao Associates" />
         <link rel="canonical" href="https://jmraoassociates.com/fssai-central" />
       </Helmet>
 
@@ -32,7 +32,7 @@ export default function FSSAICentral() {
     {
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
-      "name": "JM Rao Associates",
+      "name": "J M Rao Associates",
       "description": "Professional FSSAI central license services in Andhra Pradesh",
       "url": "https://jmraoassociates.com/fssai-central",
       "telephone": "+91-8801221088",
@@ -274,7 +274,7 @@ export default function FSSAICentral() {
             Ready to Get Your FSSAI Central License?
           </h2>
           <p className="text-xl mb-8 max-w-2xl mx-auto opacity-90">
-            Our Hyderabad-based experts make the process simple, fast, and hassle-free.
+            Our J M Rao Associates experts make the process simple, fast, and hassle-free.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <a

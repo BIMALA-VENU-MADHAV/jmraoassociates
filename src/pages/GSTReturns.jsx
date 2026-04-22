@@ -8,7 +8,7 @@ export default function GSTReturns() {
       <br />
 
       <Helmet>
-        <title>GST Return Filing Services in Andhra Pradesh | JM Rao Associates</title>
+        <title>GST Return Filing Services in Andhra Pradesh | J M Rao Associates</title>
         <meta name="description" content="Professional GST return filing services in Andhra Pradesh. Accurate, timely, and compliant GST returns for businesses of all sizes. Expert consultants. Serving Narasapuram, Palakolu & across AP." />
       </Helmet>
 
@@ -233,7 +233,7 @@ export default function GSTReturns() {
         <section className="mb-16 bg-white rounded-xl shadow-md p-8 border border-gray-100">
           <h2 className="text-3xl font-bold text-blue-800 mb-6 flex items-center">
             <FaShieldAlt className="mr-3 text-blue-600" />
-            Why Choose JM Rao Associates for GST Returns
+            Why Choose J M Rao Associates for GST Returns
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[

@@ -37,7 +37,7 @@ export default function Registration() {
       <br />
 
       <Helmet>
-        <title>Business Registration Services | JM Rao Associates</title>
+        <title>Business Registration Services | J M Rao Associates</title>
       </Helmet>
 
       {/* HERO */}

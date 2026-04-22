@@ -8,11 +8,11 @@ export default function TDS() {
       <br />
 
       <Helmet>
-  <title>TDS Return Filing Services in Andhra Pradesh | JM Rao Associates</title>
+  <title>TDS Return Filing Services in Andhra Pradesh | J M Rao Associates</title>
   <meta name="description" content="Complete TDS return filing services in Andhra Pradesh. Quarterly returns, compliance assistance, penalty avoidance. Expert consultants, accurate filing. Serving Narasapuram, Palakolu & across AP." />
   <meta name="keywords" content="TDS return filing Andhra Pradesh, TDS returns, TDS compliance, tax deducted at source, TDS filing Narasapuram, TDS filing Palakolu, quarterly TDS returns" />
   <meta name="robots" content="index, follow" />
-  <meta name="author" content="JM Rao Associates" />
+  <meta name="author" content="J M Rao Associates" />
   <link rel="canonical" href="https://jmraoassociates.com/tds" />
 </Helmet>
 
@@ -22,7 +22,7 @@ export default function TDS() {
     {
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
-      "name": "JM Rao Associates",
+      "name": "J M Rao Associates",
       "description": "Professional TDS return filing services in Andhra Pradesh",
       "url": "https://jmraoassociates.com/tds",
       "telephone": "+91-8801221088",
@@ -298,7 +298,7 @@ export default function TDS() {
         {/* Why Choose Us Section */}
         <section className="mb-16">
           <h2 className="text-3xl font-bold text-center text-blue-800 mb-12">
-            Why Choose <span className="text-blue-600">JM Rao Associates</span>
+            Why Choose <span className="text-blue-600">J M Rao Associates</span>
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[

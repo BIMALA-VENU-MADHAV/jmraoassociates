@@ -8,12 +8,12 @@ export default function GSTModifications() {
       <br />
       <Helmet>
         <title>
-          GST Modification Services in Andhra Pradesh | JM Rao Associates
+          GST Modification Services in Andhra Pradesh | J M Rao Associates
         </title>
 
         <meta
           name="description"
-          content="Update or modify your GST registration details in Andhra Pradesh with JM Rao Associates. Fast GST amendments, corrections, and compliance support. Serving Narasapuram, Palakolu & across AP."
+          content="Update or modify your GST registration details in Andhra Pradesh with J M Rao Associates. Fast GST amendments, corrections, and compliance support. Serving Narasapuram, Palakolu & across AP."
         />
 
         <meta
@@ -22,7 +22,7 @@ export default function GSTModifications() {
         />
 
         <meta name="robots" content="index, follow" />
-        <meta name="author" content="JM Rao Associates" />
+        <meta name="author" content="J M Rao Associates" />
 
         <link
           rel="canonical"
@@ -35,7 +35,7 @@ export default function GSTModifications() {
     {
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
-      "name": "JM Rao Associates",
+      "name": "J M Rao Associates",
       "description": "GST modification and amendment services in Andhra Pradesh",
       "url": "https://jmraoassociates.com/gst-modifications",
       "telephone": "+91-8801221088",
@@ -301,7 +301,7 @@ export default function GSTModifications() {
         {/* Why Choose Us Section */}
         <section className="mb-16">
           <h2 className="text-3xl font-bold text-center text-blue-800 mb-12">
-            Why Choose <span className="text-blue-600">JM Rao Associates</span>
+            Why Choose <span className="text-blue-600">J M Rao Associates</span>
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[

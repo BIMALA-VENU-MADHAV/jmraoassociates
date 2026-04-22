@@ -363,7 +363,7 @@ export default function About() {
             Ready to Simplify Your Taxes?
           </h2>
           <p className="text-xl mb-8 max-w-2xl mx-auto opacity-90">
-            Let JM Rao Associates handle your compliance while you focus on growing your business.
+            Let J M Rao Associates handle your compliance while you focus on growing your business.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <a
