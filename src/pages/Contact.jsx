@@ -53,7 +53,7 @@ Message: ${message}`;
     const encodedText = encodeURIComponent(whatsappText);
 
     // 🚀 Open WhatsApp
-    window.open(`https://wa.me/918142226617?text=${encodedText}`, "_blank");
+    window.open(`https://wa.me/918801221088?text=${encodedText}`, "_blank");
 
     // 📧 Send Email in background (fallback)
     try {
@@ -64,7 +64,7 @@ Message: ${message}`;
       formData.append("service", service);
       formData.append("message", message);
 
-      await fetch("https://formsubmit.co/ajax/venubimala1234@gmail.com", {
+      await fetch("https://formsubmit.co/ajax/jmraoassociates@gmail.com", {
         method: "POST",
         body: formData,
         headers: { Accept: "application/json" }
