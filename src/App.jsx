@@ -104,9 +104,15 @@ function App() {
       <div className="min-h-screen">
         <Suspense
           fallback={
-            <div className="flex justify-center items-center h-screen">
-              <div className="text-blue-600 text-lg font-semibold">
-                Loading...
+            <div className="flex justify-center items-start h-screen pt-80">
+              <div className="flex flex-col items-center space-y-4">
+
+                <div className="w-12 h-12 border-4 border-blue-200 border-t-blue-700 rounded-full animate-spin"></div>
+
+                <p className="text-blue-700 text-lg font-semibold tracking-wide">
+                  Loading...
+                </p>
+
               </div>
             </div>
           }
