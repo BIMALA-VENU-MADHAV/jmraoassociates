@@ -1,45 +1,47 @@
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
+import { lazy, Suspense } from "react";
 
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
-import PrivacyPolicy from "./pages/PrivacyPolicy";
- 
+const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
+
 
 
 // Pages
 import Home from "./pages/Home";
-import About from "./pages/About";
-import Contact from "./pages/Contact";
+const About = lazy(() => import("./pages/About"));
+const Contact = lazy(() => import("./pages/Contact"));
 
 // GST
-import GST from "./pages/GST";
-import GSTRegistration from "./pages/GSTRegistration";
-import GSTReturns from "./pages/GSTReturns";
-import GSTModifications from "./pages/GSTModifications";
+const GST = lazy(() => import("./pages/GST"));
+const GSTRegistration = lazy(() => import("./pages/GSTRegistration"));
+const GSTReturns = lazy(() => import("./pages/GSTReturns"));
+const GSTModifications = lazy(() => import("./pages/GSTModifications"));
 
 // TAX
-import TAX from "./pages/TAX";
-import IncomeTax from "./pages/IncomeTax";
-import TaxAudit from "./pages/TaxAudit";
-import TDS from "./pages/TDS";
-import ProfessionalTax from "./pages/ProfessionalTax";
+const TAX = lazy(() => import("./pages/TAX"));
+const IncomeTax = lazy(() => import("./pages/IncomeTax"));
+const TaxAudit = lazy(() => import("./pages/TaxAudit"));
+const TDS = lazy(() => import("./pages/TDS"));
+const ProfessionalTax = lazy(() => import("./pages/ProfessionalTax"));
 
 // FOOD LICENSE
-import FSSAI from "./pages/FSSAI";
-import FSSAIRegistration from "./pages/FSSAIRegistration";
-import FSSAIState from "./pages/FSSAIState";
-import FSSAICentral from "./pages/FSSAICentral";
+const FSSAI = lazy(() => import("./pages/FSSAI"));
+const FSSAIRegistration = lazy(() => import("./pages/FSSAIRegistration"));
+const FSSAIState = lazy(() => import("./pages/FSSAIState"));
+const FSSAICentral = lazy(() => import("./pages/FSSAICentral"));
 
 // REGISTRATION
-import Registration from "./pages/Registration"; 
-import PAN from "./pages/PAN";
-import TAN from "./pages/TAN";
-import MSME from "./pages/MSME";
+const Registration = lazy(() => import("./pages/Registration"));
+const PAN = lazy(() => import("./pages/PAN"));
+const TAN = lazy(() => import("./pages/TAN"));
+const MSME = lazy(() => import("./pages/MSME"));
+
 import { i } from "framer-motion/client";
 
-import NotFound from "./pages/NotFound";
+const NotFound = lazy(() => import("./pages/NotFound"));
 
 function AnimatedRoutes() {
   const location = useLocation();
@@ -66,7 +68,7 @@ function AnimatedRoutes() {
           <Route path="/gst-modifications" element={<GSTModifications />} />
 
           {/* TAX */}
-          <Route path="/tax" element={<TAX />} />   
+          <Route path="/tax" element={<TAX />} />
           <Route path="/income-tax-filing" element={<IncomeTax />} />
           <Route path="/income-tax-audit" element={<TaxAudit />} />
           <Route path="/tds-returns" element={<TDS />} />
@@ -86,7 +88,7 @@ function AnimatedRoutes() {
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
 
           <Route path="*" element={<NotFound />} />
- 
+
         </Routes>
       </motion.div>
     </AnimatePresence>
@@ -100,7 +102,17 @@ function App() {
       <Navbar />
 
       <div className="min-h-screen">
-        <AnimatedRoutes />
+        <Suspense
+          fallback={
+            <div className="flex justify-center items-center h-screen">
+              <div className="text-blue-600 text-lg font-semibold">
+                Loading...
+              </div>
+            </div>
+          }
+        >
+          <AnimatedRoutes />
+        </Suspense>
       </div>
 
       <Footer />

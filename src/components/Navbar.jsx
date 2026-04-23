@@ -147,6 +147,9 @@ export default function Navbar() {
           <button
             className="lg:hidden text-2xl text-blue-700 p-2 hover:bg-blue-50 rounded-lg"
             onClick={toggleMobileMenu}
+            aria-label={menuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={menuOpen}
+            aria-controls="mobile-menu"
           >
             {menuOpen ? <FaTimes /> : <FaBars />}
           </button>
@@ -155,7 +158,7 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {menuOpen && (
-        <div className="lg:hidden bg-white border-t border-gray-200 shadow-lg">
+        <div  id="mobile-menu" className="lg:hidden bg-white border-t border-gray-200 shadow-lg">
           <div className="px-4 py-6 space-y-4 text-gray-700 font-medium">
 
             <Link to="/" className="block hover:text-blue-600 transition-colors duration-200 py-2 px-3 rounded-lg hover:bg-blue-50" onClick={closeMobileMenu}>
