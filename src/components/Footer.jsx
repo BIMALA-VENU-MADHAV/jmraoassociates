@@ -186,7 +186,7 @@ const Footer = () => {
                   <div className="flex items-start space-x-3">
                     <FaMapMarkerAlt className="text-blue-400 mt-1 flex-shrink-0" />
                     <div>
-                      <div className="font-medium">Locations</div>
+                      <div className="font-medium">Location</div>
                       <div className="text-blue-200">
                         Flat No. 101, Sainadh Residency, Steamer Road<br />Narasapuram, Andhra Pradesh
                       </div>

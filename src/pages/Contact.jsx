@@ -52,10 +52,10 @@ Message: ${message}`;
 
     const encodedText = encodeURIComponent(whatsappText);
 
-    // 🚀 Open WhatsApp
+    
     window.open(`https://wa.me/918801221088?text=${encodedText}`, "_blank");
 
-    // 📧 Send Email in background (fallback)
+     
     try {
       const formData = new FormData();
       formData.append("name", name);
@@ -225,7 +225,7 @@ Message: ${message}`;
                   <input
                     type="email"
                     name="email"
-                    placeholder="your@email.com"
+                    placeholder="your@gmail.com"
                     className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-colors"
                     required
                   />
