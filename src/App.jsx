@@ -10,7 +10,7 @@ const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
 
 
 // Pages
-import Home from "./pages/Home";
+const Home = lazy(() => import("./pages/Home"));
 const About = lazy(() => import("./pages/About"));
 const Contact = lazy(() => import("./pages/Contact"));
 

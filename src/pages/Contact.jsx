@@ -12,42 +12,75 @@ export default function Contact() {
     setLoading(true);
     setStatusMessage({ type: "", text: "" });
 
-    const formElement = e.target;
-    const formDataToSend = new FormData(formElement);
+    const form = e.target;
 
-    try {
-      // Send form data to FormSubmit
-      const response = await fetch("https://formsubmit.co/ajax/jmraoassociates@gmail.com", {
-        method: "POST",
-        body: formDataToSend,
-        headers: {
-          'Accept': 'application/json'
-        }
-      });
+    const name = form.name.value.trim();
+    const email = form.email.value.trim();
+    const phone = form.phone.value.trim();
+    const service = form.service.value;
+    const message = form.message.value.trim();
 
-      if (response.ok) {
-        setStatusMessage({
-          type: "success",
-          text: "Message sent successfully! We'll get back to you within 24 hours."
-        });
-        // Reset form
-        formElement.reset();
-      } else {
-        throw new Error("Form submission failed");
-      }
-    } catch (error) {
-      console.error("Form submission error:", error);
+    // ✅ Basic validation
+    if (!name || !email || !phone || !message) {
       setStatusMessage({
         type: "error",
-        text: "Failed to send message. Please try again or contact us directly at +91 88012 21088"
+        text: "Please fill all required fields"
       });
-    } finally {
       setLoading(false);
-      // Clear message after 5 seconds
-      setTimeout(() => setStatusMessage({ type: "", text: "" }), 5000);
+      return;
     }
-  };
 
+    if (!/^[0-9]{10}$/.test(phone)) {
+      setStatusMessage({
+        type: "error",
+        text: "Enter valid 10-digit phone number"
+      });
+      setLoading(false);
+      return;
+    }
+
+    // 📱 WhatsApp message
+    const whatsappText = `Hi J M Rao Associates,
+
+I would like to enquire:
+
+Name: ${name}
+Email: ${email}
+Phone: ${phone}
+Service: ${service || "Not specified"}
+Message: ${message}`;
+
+    const encodedText = encodeURIComponent(whatsappText);
+
+    // 🚀 Open WhatsApp
+    window.open(`https://wa.me/918142226617?text=${encodedText}`, "_blank");
+
+    // 📧 Send Email in background (fallback)
+    try {
+      const formData = new FormData();
+      formData.append("name", name);
+      formData.append("email", email);
+      formData.append("phone", phone);
+      formData.append("service", service);
+      formData.append("message", message);
+
+      await fetch("https://formsubmit.co/ajax/venubimala1234@gmail.com", {
+        method: "POST",
+        body: formData,
+        headers: { Accept: "application/json" }
+      });
+    } catch (error) {
+      console.error("Email fallback failed", error);
+    }
+
+    setStatusMessage({
+      type: "success",
+      text: "Opening WhatsApp... We also saved your request."
+    });
+
+    form.reset();
+    setLoading(false);
+  };
   return (
     <div className="min-h-screen">
       <br />
@@ -162,8 +195,8 @@ export default function Contact() {
               {/* Status Message */}
               {statusMessage.text && (
                 <div className={`p-4 rounded-lg flex items-center space-x-3 ${statusMessage.type === "success"
-                    ? "bg-green-50 border border-green-200"
-                    : "bg-red-50 border border-red-200"
+                  ? "bg-green-50 border border-green-200"
+                  : "bg-red-50 border border-red-200"
                   }`}>
                   {statusMessage.type === "success" ? (
                     <FaCheckCircle className="text-green-600 text-xl flex-shrink-0" />
@@ -350,7 +383,7 @@ export default function Contact() {
 
                 </div>
 
-                
+
 
               </div>
             </div>
@@ -365,7 +398,7 @@ export default function Contact() {
                 >
                   Call Narasapuram
                 </a>
-               
+
               </div>
             </div>
           </div>
