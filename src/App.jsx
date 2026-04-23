@@ -101,7 +101,7 @@ function App() {
       <ScrollToTop />
       <Navbar />
 
-      <div className="min-h-screen">
+      <main className="min-h-screen">
         <Suspense
           fallback={
             <div className="flex justify-center items-start h-screen pt-80">
@@ -119,7 +119,7 @@ function App() {
         >
           <AnimatedRoutes />
         </Suspense>
-      </div>
+      </main>
 
       <Footer />
     </BrowserRouter>
