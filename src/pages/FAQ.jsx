@@ -12,7 +12,7 @@ export default function FAQ() {
     },
     {
       q: "Where are your offices located?",
-      a: "We are located in Narasapuram and Palakolu.",
+      a: "We are located in Narasapuram and Palakollu.",
     },
     {
       q: "How can I contact you?",
