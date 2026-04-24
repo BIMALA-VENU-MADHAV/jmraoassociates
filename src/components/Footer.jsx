@@ -307,7 +307,7 @@ const Footer = () => {
               <p className="text-blue-300 text-xs mt-1">
                 Trusted Tax & Compliance Solutions Since 2017
               </p>
-            </div>
+            </div>  
 
             <div className="flex items-center space-x-6 text-sm text-blue-200"> 
               <Link to="/privacy-policy" className="hover:text-white transition-colors">
