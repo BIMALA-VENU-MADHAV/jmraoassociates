@@ -274,7 +274,7 @@ export default function PAN() {
             Get Your PAN Card Today!
           </h2>
           <p className="text-xl mb-8 max-w-2xl mx-auto opacity-90">
-            Fast, reliable, and hassle-free PAN card registration services in Hyderabad.
+            Fast, reliable, and hassle-free PAN card registration services in Andhra Pradesh.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <a

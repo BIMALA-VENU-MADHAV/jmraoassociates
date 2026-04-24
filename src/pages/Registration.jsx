@@ -54,7 +54,7 @@ export default function Registration() {
             </h1>
 
             <p className="text-lg mb-6">
-              Start and grow your business legally
+              Start and grow your business legally in Andhra Pradesh with our expert registration services. We handle PAN, TAN, MSME, and more to ensure your business is compliant and ready for success.  
             </p>
 
             {/* BADGES */}

@@ -274,7 +274,7 @@ export default function TAN() {
             Get Your TAN Registered Today!
           </h2>
           <p className="text-xl mb-8 max-w-2xl mx-auto opacity-90">
-            Ensure TDS compliance with our expert TAN registration services in Hyderabad.
+            Ensure TDS compliance with our expert TAN registration services in Andhra Pradesh.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <a

@@ -177,7 +177,7 @@ export default function Home() {
                 About J M Rao Associates
               </h2>
               <p className="text-gray-700 mb-4 leading-relaxed">
-                Established in 2017, J M Rao Associates is your trusted partner for GST, Income Tax, TDS, and comprehensive accounting services. We serve over 150 clients across Narasapuram and Palakolu with personalized, expert guidance.
+                Established in 2017, J M Rao Associates is your trusted partner for GST, Income Tax, TDS, and comprehensive accounting services. We serve over 150 clients across Narasapuram and Palakollu with personalized, expert guidance.
               </p>
               <p className="text-gray-700 mb-6 leading-relaxed">
                 Our commitment goes beyond compliance – we build lasting relationships through clarity, accuracy, and unwavering trust. Whether you're a startup or an established business, we provide practical solutions tailored to your needs.
