@@ -302,7 +302,7 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="text-center md:text-left mb-4 md:mb-0">
               <p className="text-blue-200 text-sm">
-                © {new Date().getFullYear()} JM Rao Associates. All rights reserved.
+                © {new Date().getFullYear()} J M Rao Associates. All rights reserved.
               </p>
               <p className="text-blue-300 text-xs mt-1">
                 Trusted Tax & Compliance Solutions Since 2017
