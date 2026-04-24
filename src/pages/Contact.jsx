@@ -136,7 +136,7 @@ Message: ${message}`;
               },
               {
                 icon: <FaMapMarkerAlt className="text-3xl text-blue-600" />,
-                title: "Our Locations",
+                title: "Address",
                 content: "Flat No. 101, Sainadh Residency, Steamer Road\nNarasapuram, Andhra Pradesh",
                 action: "#"
               },
