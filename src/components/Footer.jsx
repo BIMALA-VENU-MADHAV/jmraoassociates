@@ -124,7 +124,7 @@ const Footer = () => {
                 </div>
 
                 <p className="text-blue-100 mb-6 leading-relaxed">
-                  Trusted tax consultants in Narasapuram & Palakolu providing comprehensive GST,
+                  Trusted tax consultants in Narasapuram & Palakollu providing comprehensive GST,
                   Income Tax, TDS, and accounting services with professionalism and accuracy since 2017.
                 </p>
 
