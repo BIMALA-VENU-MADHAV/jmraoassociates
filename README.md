@@ -1,35 +1,31 @@
-# 🧾 JMRAO Associates Website
+# 🧾 JMRAO Associates – Business Website
 
-## 📌 Description
-A service-based business website designed to showcase tax and compliance services including GST, Income Tax, TDS, and registrations.
-
----
-
-## 🛠️ Tech Stack
-- React + Vite  
-- Tailwind CSS  
-- Framer Motion  
-- React Router  
+## 🎯 Objective
+To build a professional digital presence for a tax & compliance service provider.
 
 ---
 
-## ✨ Features
-- Service showcase pages  
-- Smooth animations  
-- Responsive modern UI  
-- Fast performance  
+## 🧠 What This Project Focuses On
+- Service clarity  
+- Trust-building UI  
+- Smooth user experience  
 
 ---
 
-## 🎯 Purpose
-To provide a professional online presence for a tax and compliance service provider.
+## 💼 Services Covered
+- GST Registration & Returns  
+- Income Tax  
+- TDS  
+- FSSAI, PAN, MSME  
 
 ---
 
-## ▶️ Live Demo
-https://jmraoassociates.vercel.app 
+## 🎨 Frontend Stack
+React + Vite  
+Tailwind CSS  
+Framer Motion  
 
 ---
 
-## 👨‍💻 Author
-Bimala Venu Madhav
+## ⚡ Performance
+Optimized for speed and responsiveness
