@@ -59,9 +59,9 @@ const Footer = () => {
     },
   ];
 
-  const scrollToTop = () => {
+  /*const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
+  };*/
 
   const location = useLocation();
 
@@ -322,39 +322,6 @@ const Footer = () => {
 
       </div>
 
-      {/* Floating Action Buttons */}
-      <div className="fixed bottom-6 right-6 flex flex-col space-y-3 z-50">
-
-        {/* Scroll to Top */}
-        <button
-          onClick={scrollToTop}
-          className="bg-blue-600 hover:bg-blue-500 p-3 rounded-full shadow-lg hover:scale-110 transition-all duration-200 group"
-          aria-label="Scroll to top"
-        >
-          <FaArrowUp className="text-white group-hover:-translate-y-0.5 transition-transform" />
-        </button>
-
-        {/* WhatsApp */}
-        <a
-          href="https://wa.me/918801221088"
-          target="_blank"
-          rel="noreferrer"
-          className="bg-green-500 hover:bg-green-400 p-3 rounded-full shadow-lg hover:scale-110 transition-all duration-200 group"
-          aria-label="WhatsApp"
-        >
-          <FaWhatsapp className="text-white text-lg group-hover:scale-110 transition-transform" />
-        </a>
-
-        {/* Call */}
-        <a
-          href="tel:+918801221088"
-          className="bg-blue-600 hover:bg-blue-500 p-3 rounded-full shadow-lg hover:scale-110 transition-all duration-200 group"
-          aria-label="Call us"
-        >
-          <FaPhone className="text-white group-hover:animate-pulse" />
-        </a>
-
-      </div>
 
     </footer>
   );

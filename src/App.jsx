@@ -5,6 +5,7 @@ import { lazy, Suspense } from "react";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
+import Chatbot from "./components/Chatbot";
 const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
 
 
@@ -120,7 +121,8 @@ function App() {
           <AnimatedRoutes />
         </Suspense>
       </main>
-
+      
+      <Chatbot />
       <Footer />
     </BrowserRouter>
   );
