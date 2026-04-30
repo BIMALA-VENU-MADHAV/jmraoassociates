@@ -73,7 +73,7 @@ Please choose a service:
     // ✅ AI FALLBACK
     const askAI = async (message) => {
         try {
-            const res = await fetch("https://toji7.app.n8n.cloud/webhook/chat", {
+            const res = await fetch("https://toji7.app.n8n.cloud/webhook-test/chat", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
@@ -81,10 +81,14 @@ Please choose a service:
                 }),
             });
 
+            if (!res.ok) throw new Error("API failed");
+
             const data = await res.json();
-            return data.output;
-        } catch {
-            return "⚠️ Please contact us on WhatsApp: https://wa.me/918801221088";
+
+            return data.output ||
+                "Please contact us on WhatsApp: https://wa.me/918801221088";
+        } catch (err) {
+            return "⚠️ Server busy. Please contact us on WhatsApp: https://wa.me/918801221088";
         }
     };
 
