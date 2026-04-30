@@ -35,178 +35,236 @@ Please choose a service:
         }
     }, [messages, typing]);
 
+
+    useEffect(() => {
+        if (messagesContainerRef.current) {
+            messagesContainerRef.current.scrollTo({
+                top: messagesContainerRef.current.scrollHeight,
+                behavior: "smooth",
+            });
+        }
+    }, [messages, typing]);
+
     const [menu, setMenu] = useState("main");
+    const [step, setStep] = useState("menu"); // menu | name | phone
+    const [selectedService, setSelectedService] = useState("");
+    const [userName, setUserName] = useState("");
 
-const sendMessage = async (msg) => {
-  const messageToSend = msg || input;
-  if (!messageToSend) return;
+    // ✅ VALIDATION
+    const isValidPhone = (phone) => /^[6-9]\d{9}$/.test(phone);
 
-  const userMsg = { text: messageToSend, sender: "user" };
-  setMessages((prev) => [...prev, userMsg]);
-  setInput("");
-  setTyping(true);
+    // ✅ SAVE LEAD
+    const saveToSheet = async (serviceName, name, phone) => {
+        try {
+            await fetch("https://toji7.app.n8n.cloud/webhook/lead", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    name: userName,
+                    phone: phone,
+                    message: selectedService,
+                }),
+            });
+        } catch (e) {
+            console.log("Save failed");
+        }
+    };
 
-  let reply = "";
+    // ✅ AI FALLBACK
+    const askAI = async (message) => {
+        try {
+            const res = await fetch("https://toji7.app.n8n.cloud/webhook/chat", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    message: message,
+                }),
+            });
 
-  // 🔥 MAIN MENU
-  if (menu === "main") {
-    switch (messageToSend.trim()) {
-      case "1":
-        setMenu("gst");
-        reply = `📊 *GST Services*
+            const data = await res.json();
+            return data.output;
+        } catch {
+            return "⚠️ Please contact us on WhatsApp: https://wa.me/918801221088";
+        }
+    };
+
+    const sendMessage = async (msg) => {
+        const messageToSend = msg || input;
+        if (!messageToSend) return;
+
+        const cleanMsg = messageToSend.trim();
+
+        setMessages((prev) => [...prev, { text: cleanMsg, sender: "user" }]);
+        setInput("");
+        setTyping(true);
+
+        let reply = "";
+
+        // 🟢 STEP: NAME
+        if (step === "name") {
+            setUserName(cleanMsg);
+            setStep("phone");
+            reply = "📱 Please enter your phone number";
+        }
+
+        // 🟢 STEP: PHONE
+        else if (step === "phone") {
+            if (!isValidPhone(cleanMsg)) {
+                reply = "❌ Enter valid 10-digit phone number";
+            } else {
+                await saveToSheet(selectedService, userName, cleanMsg);
+
+                reply = `✅ Thank you ${userName}!
+
+We will contact you shortly regarding *${selectedService}*`;
+
+                setStep("menu");
+                setMenu("main");
+                setSelectedService("");
+                setUserName("");
+            }
+        }
+
+        // 🔥 MAIN MENU
+        else if (menu === "main") {
+            if (cleanMsg === "1") {
+                setMenu("gst");
+                reply = `📊 *GST Services*
 
 1. GST Registration  
 2. GST Returns Filing  
 3. GST Modifications  
 
-👉 Reply with option number`;
-        break;
-
-      case "2":
-        setMenu("tax");
-        reply = `💰 *Tax Services*
+👉 Reply 1–3 or 0`;
+            } else if (cleanMsg === "2") {
+                setMenu("tax");
+                reply = `💰 *Tax Services*
 
 1. Income Tax Filing  
 2. Tax Audit  
 3. TDS Returns  
 4. Professional Tax  
 
-👉 Reply with option number`;
-        break;
+👉 Reply 1–4 or 0`;
+            } else if (cleanMsg === "3") {
+                setMenu("fssai");
+                reply = `🍽 *FSSAI*
 
-      case "3":
-        setMenu("fssai");
-        reply = `🍽 *FSSAI / Food License*
-
-1. FSSAI Registration  
+1. Registration  
 2. State License  
 3. Central License  
 
-👉 Reply with option number`;
-        break;
+👉 Reply 1–3 or 0`;
+            } else if (cleanMsg === "4") {
+                setMenu("registration");
+                reply = `📄 *Registration*
 
-      case "4":
-        setMenu("registration");
-        reply = `📄 *Registration Services*
+1. PAN  
+2. TAN  
+3. MSME  
 
-1. PAN Registration  
-2. TAN Registration  
-3. MSME Registration  
+👉 Reply 1–3 or 0`;
+            } else {
+                // 👉 AI fallback here
+                reply = await askAI(cleanMsg);
+            }
+        }
 
-👉 Reply with option number`;
-        break;
+        // 🔥 GST MENU
+        else if (menu === "gst") {
+            if (cleanMsg === "0") {
+                setMenu("main");
+                reply = "🔙 Back to main menu";
+            } else if (cleanMsg === "1") {
+                setSelectedService("GST Registration");
+                setStep("name");
+                reply = "👤 Please enter your name";
+            } else if (cleanMsg === "2") {
+                setSelectedService("GST Returns Filing");
+                setStep("name");
+                reply = "👤 Please enter your name";
+            } else if (cleanMsg === "3") {
+                setSelectedService("GST Modifications");
+                setStep("name");
+                reply = "👤 Please enter your name";
+            } else {
+                reply = "❌ Choose 1–3 or 0";
+            }
+        }
 
-      default:
-        reply = "Please choose a valid option (1–4)";
-    }
-  }
+        // 🔥 TAX MENU
+        else if (menu === "tax") {
+            if (cleanMsg === "0") {
+                setMenu("main");
+                reply = "🔙 Back";
+            } else if (cleanMsg === "1") {
+                setSelectedService("Income Tax Filing");
+                setStep("name");
+                reply = "👤 Enter your name";
+            } else if (cleanMsg === "2") {
+                setSelectedService("Tax Audit");
+                setStep("name");
+                reply = "👤 Enter your name";
+            } else if (cleanMsg === "3") {
+                setSelectedService("TDS Returns");
+                setStep("name");
+                reply = "👤 Enter your name";
+            } else if (cleanMsg === "4") {
+                setSelectedService("Professional Tax");
+                setStep("name");
+                reply = "👤 Enter your name";
+            } else {
+                reply = "❌ Choose 1–4";
+            }
+        }
 
-  // 🔥 GST MENU
-  else if (menu === "gst") {
-    switch (messageToSend.trim()) {
-      case "1":
-        reply = "GST Registration service available.\n👉 WhatsApp: https://wa.me/918801221088";
-        break;
-      case "2":
-        reply = "GST Returns Filing service available.\n👉 Contact us.";
-        break;
-      case "3":
-        reply = "GST Modifications service available.\n👉 Contact us.";
-        break;
-      default:
-        reply = "Please choose 1–3";
-    }
-  }
+        // 🔥 FSSAI MENU
+        else if (menu === "fssai") {
+            if (cleanMsg === "0") {
+                setMenu("main");
+                reply = "🔙 Back";
+            } else if (cleanMsg === "1") {
+                setSelectedService("FSSAI Registration");
+                setStep("name");
+                reply = "👤 Enter your name";
+            } else if (cleanMsg === "2") {
+                setSelectedService("FSSAI State License");
+                setStep("name");
+                reply = "👤 Enter your name";
+            } else if (cleanMsg === "3") {
+                setSelectedService("FSSAI Central License");
+                setStep("name");
+                reply = "👤 Enter your name";
+            } else {
+                reply = "❌ Choose 1–3";
+            }
+        }
 
-  // 🔥 TAX MENU
-  else if (menu === "tax") {
-    switch (messageToSend.trim()) {
-      case "1":
-        reply = "Income Tax Filing service available.";
-        break;
-      case "2":
-        reply = "Tax Audit service available.";
-        break;
-      case "3":
-        reply = "TDS Returns service available.";
-        break;
-      case "4":
-        reply = "Professional Tax service available.";
-        break;
-      default:
-        reply = "Please choose 1–4";
-    }
-  }
+        // 🔥 REGISTRATION MENU
+        else if (menu === "registration") {
+            if (cleanMsg === "0") {
+                setMenu("main");
+                reply = "🔙 Back";
+            } else if (cleanMsg === "1") {
+                setSelectedService("PAN Registration");
+                setStep("name");
+                reply = "👤 Enter your name";
+            } else if (cleanMsg === "2") {
+                setSelectedService("TAN Registration");
+                setStep("name");
+                reply = "👤 Enter your name";
+            } else if (cleanMsg === "3") {
+                setSelectedService("MSME Registration");
+                setStep("name");
+                reply = "👤 Enter your name";
+            } else {
+                reply = "❌ Choose 1–3";
+            }
+        }
 
-  // 🔥 FSSAI MENU
-  else if (menu === "fssai") {
-    switch (messageToSend.trim()) {
-      case "1":
-        reply = "FSSAI Registration service available.";
-        break;
-      case "2":
-        reply = "FSSAI State License service available.";
-        break;
-      case "3":
-        reply = "FSSAI Central License service available.";
-        break;
-      default:
-        reply = "Please choose 1–3";
-    }
-  }
-
-  // 🔥 REGISTRATION MENU
-  else if (menu === "registration") {
-    switch (messageToSend.trim()) {
-      case "1":
-        reply = "PAN Registration service available.";
-        break;
-      case "2":
-        reply = "TAN Registration service available.";
-        break;
-      case "3":
-        reply = "MSME Registration service available.";
-        break;
-      default:
-        reply = "Please choose 1–3";
-    }
-  }
-
-  // ✅ SEND RESPONSE
-  if (reply) {
-    setTyping(false);
-    setMessages((prev) => [...prev, { text: reply, sender: "bot" }]);
-    return;
-  }
-
-  // 🌐 FALLBACK AI (optional)
-  try {
-    const res = await fetch("https://toji7.app.n8n.cloud/webhook/chat", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ message: messageToSend }),
-    });
-
-    const data = await res.json();
-
-    setTyping(false);
-
-    setMessages((prev) => [
-      ...prev,
-      { text: data.output || "Please contact us.", sender: "bot" },
-    ]);
-
-  } catch {
-    setTyping(false);
-
-    setMessages((prev) => [
-      ...prev,
-      { text: "⚠️ Please contact us on WhatsApp.", sender: "bot" },
-    ]);
-  }
-};
+        setTyping(false);
+        setMessages((prev) => [...prev, { text: reply, sender: "bot" }]);
+    };
 
     const toggleChat = () => {
         setOpen((prev) => {
@@ -248,8 +306,8 @@ const sendMessage = async (msg) => {
                         <div
                             key={i}
                             className={`p-3 rounded-xl max-w-[75%] whitespace-pre-line shadow-sm ${msg.sender === "user"
-                                    ? "bg-blue-600 text-white ml-auto"
-                                    : "bg-white border border-gray-200 text-gray-800"
+                                ? "bg-blue-600 text-white ml-auto"
+                                : "bg-white border border-gray-200 text-gray-800"
                                 }`}
                         >
                             <span
