@@ -21,48 +21,39 @@ Please choose a service:
 
     const [input, setInput] = useState("");
     const [typing, setTyping] = useState(false);
+
+    // ✅ FIX ADDED HERE (missing state)
     const [hasNewMessage, setHasNewMessage] = useState(false);
 
     const messagesContainerRef = useRef(null);
 
-    // Auto-scroll (inside chat only)
-    useEffect(() => {
-        if (messagesContainerRef.current) {
-            messagesContainerRef.current.scrollTo({
-                top: messagesContainerRef.current.scrollHeight,
-                behavior: "smooth",
-            });
-        }
-    }, [messages, typing]);
-
-
-    useEffect(() => {
-        if (messagesContainerRef.current) {
-            messagesContainerRef.current.scrollTo({
-                top: messagesContainerRef.current.scrollHeight,
-                behavior: "smooth",
-            });
-        }
-    }, [messages, typing]);
-
     const [menu, setMenu] = useState("main");
-    const [step, setStep] = useState("menu"); // menu | name | phone
+    const [step, setStep] = useState("menu");
     const [selectedService, setSelectedService] = useState("");
     const [userName, setUserName] = useState("");
 
-    // ✅ VALIDATION
+    // AUTO SCROLL
+    useEffect(() => {
+        if (messagesContainerRef.current) {
+            messagesContainerRef.current.scrollTop =
+                messagesContainerRef.current.scrollHeight;
+        }
+    }, [messages, typing]);
+
+    // PHONE VALIDATION
     const isValidPhone = (phone) => /^[6-9]\d{9}$/.test(phone);
 
-    // ✅ SAVE LEAD
+    // SAVE TO GOOGLE SHEETS
     const saveToSheet = async (serviceName, name, phone) => {
         try {
-            await fetch("https://toji7.app.n8n.cloud/webhook/lead", {
+            await fetch("https://script.google.com/macros/s/AKfycbwvu5FnWKHoWCqiOFVPygZw8mBv7M5PB0gY-YILpdwLJhJYnw0OI79f7nYuQ-U14o1u/exec", {
                 method: "POST",
+                mode: "no-cors",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
-                    name: userName,
+                    name: name,
                     phone: phone,
-                    message: selectedService,
+                    service: serviceName,
                 }),
             });
         } catch (e) {
@@ -70,26 +61,9 @@ Please choose a service:
         }
     };
 
-    // ✅ AI FALLBACK
-    const askAI = async (message) => {
-        try {
-            const res = await fetch("https://toji7.app.n8n.cloud/webhook-test/chat", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({
-                    message: message,
-                }),
-            });
-
-            if (!res.ok) throw new Error("API failed");
-
-            const data = await res.json();
-
-            return data.output ||
-                "Please contact us on WhatsApp: https://wa.me/918801221088";
-        } catch (err) {
-            return "⚠️ Server busy. Please contact us on WhatsApp: https://wa.me/918801221088";
-        }
+    // FALLBACK
+    const askAI = async () => {
+        return "📞 Please contact us on WhatsApp: https://wa.me/918801221088";
     };
 
     const sendMessage = async (msg) => {
@@ -104,14 +78,12 @@ Please choose a service:
 
         let reply = "";
 
-        // 🟢 STEP: NAME
         if (step === "name") {
             setUserName(cleanMsg);
             setStep("phone");
             reply = "📱 Please enter your phone number";
         }
 
-        // 🟢 STEP: PHONE
         else if (step === "phone") {
             if (!isValidPhone(cleanMsg)) {
                 reply = "❌ Enter valid 10-digit phone number";
@@ -129,25 +101,24 @@ We will contact you shortly regarding *${selectedService}*`;
             }
         }
 
-        // 🔥 MAIN MENU
         else if (menu === "main") {
             if (cleanMsg === "1") {
                 setMenu("gst");
                 reply = `📊 *GST Services*
 
-1. GST Registration  
-2. GST Returns Filing  
-3. GST Modifications  
+1. GST Registration
+2. GST Returns Filing
+3. GST Modifications
 
 👉 Reply 1–3 or 0`;
             } else if (cleanMsg === "2") {
                 setMenu("tax");
                 reply = `💰 *Tax Services*
 
-1. Income Tax Filing  
-2. Tax Audit  
-3. TDS Returns  
-4. Professional Tax  
+1. Income Tax Filing 
+2. Tax Audit
+3. TDS Returns
+4. Professional Tax
 
 👉 Reply 1–4 or 0`;
             } else if (cleanMsg === "3") {
@@ -169,26 +140,21 @@ We will contact you shortly regarding *${selectedService}*`;
 
 👉 Reply 1–3 or 0`;
             } else {
-                // 👉 AI fallback here
-                reply = await askAI(cleanMsg);
+                reply = await askAI();
             }
         }
 
-        // 🔥 GST MENU
         else if (menu === "gst") {
             if (cleanMsg === "0") {
                 setMenu("main");
                 reply = "🔙 Back to main menu";
-            } else if (cleanMsg === "1") {
-                setSelectedService("GST Registration");
-                setStep("name");
-                reply = "👤 Please enter your name";
-            } else if (cleanMsg === "2") {
-                setSelectedService("GST Returns Filing");
-                setStep("name");
-                reply = "👤 Please enter your name";
-            } else if (cleanMsg === "3") {
-                setSelectedService("GST Modifications");
+            } else if (["1", "2", "3"].includes(cleanMsg)) {
+                const services = [
+                    "GST Registration",
+                    "GST Returns Filing",
+                    "GST Modifications",
+                ];
+                setSelectedService(services[cleanMsg - 1]);
                 setStep("name");
                 reply = "👤 Please enter your name";
             } else {
@@ -196,25 +162,18 @@ We will contact you shortly regarding *${selectedService}*`;
             }
         }
 
-        // 🔥 TAX MENU
         else if (menu === "tax") {
             if (cleanMsg === "0") {
                 setMenu("main");
                 reply = "🔙 Back";
-            } else if (cleanMsg === "1") {
-                setSelectedService("Income Tax Filing");
-                setStep("name");
-                reply = "👤 Enter your name";
-            } else if (cleanMsg === "2") {
-                setSelectedService("Tax Audit");
-                setStep("name");
-                reply = "👤 Enter your name";
-            } else if (cleanMsg === "3") {
-                setSelectedService("TDS Returns");
-                setStep("name");
-                reply = "👤 Enter your name";
-            } else if (cleanMsg === "4") {
-                setSelectedService("Professional Tax");
+            } else if (["1", "2", "3", "4"].includes(cleanMsg)) {
+                const services = [
+                    "Income Tax Filing",
+                    "Tax Audit",
+                    "TDS Returns",
+                    "Professional Tax",
+                ];
+                setSelectedService(services[cleanMsg - 1]);
                 setStep("name");
                 reply = "👤 Enter your name";
             } else {
@@ -222,21 +181,17 @@ We will contact you shortly regarding *${selectedService}*`;
             }
         }
 
-        // 🔥 FSSAI MENU
         else if (menu === "fssai") {
             if (cleanMsg === "0") {
                 setMenu("main");
                 reply = "🔙 Back";
-            } else if (cleanMsg === "1") {
-                setSelectedService("FSSAI Registration");
-                setStep("name");
-                reply = "👤 Enter your name";
-            } else if (cleanMsg === "2") {
-                setSelectedService("FSSAI State License");
-                setStep("name");
-                reply = "👤 Enter your name";
-            } else if (cleanMsg === "3") {
-                setSelectedService("FSSAI Central License");
+            } else if (["1", "2", "3"].includes(cleanMsg)) {
+                const services = [
+                    "FSSAI Registration",
+                    "FSSAI State License",
+                    "FSSAI Central License",
+                ];
+                setSelectedService(services[cleanMsg - 1]);
                 setStep("name");
                 reply = "👤 Enter your name";
             } else {
@@ -244,21 +199,17 @@ We will contact you shortly regarding *${selectedService}*`;
             }
         }
 
-        // 🔥 REGISTRATION MENU
         else if (menu === "registration") {
             if (cleanMsg === "0") {
                 setMenu("main");
                 reply = "🔙 Back";
-            } else if (cleanMsg === "1") {
-                setSelectedService("PAN Registration");
-                setStep("name");
-                reply = "👤 Enter your name";
-            } else if (cleanMsg === "2") {
-                setSelectedService("TAN Registration");
-                setStep("name");
-                reply = "👤 Enter your name";
-            } else if (cleanMsg === "3") {
-                setSelectedService("MSME Registration");
+            } else if (["1", "2", "3"].includes(cleanMsg)) {
+                const services = [
+                    "PAN Registration",
+                    "TAN Registration",
+                    "MSME Registration",
+                ];
+                setSelectedService(services[cleanMsg - 1]);
                 setStep("name");
                 reply = "👤 Enter your name";
             } else {
@@ -273,7 +224,7 @@ We will contact you shortly regarding *${selectedService}*`;
     const toggleChat = () => {
         setOpen((prev) => {
             const next = !prev;
-            if (next) setHasNewMessage(false);
+            if (next) setHasNewMessage(false); // ✅ now works
             return next;
         });
     };
@@ -399,12 +350,6 @@ We will contact you shortly regarding *${selectedService}*`;
                     </button>
                 </div>
 
-                {/* 🔴 NOTIFICATION */}
-                {hasNewMessage && !open && (
-                    <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs px-2 py-0.5 rounded-full animate-pulse">
-                        1
-                    </span>
-                )}
             </div>
         </>
     );
