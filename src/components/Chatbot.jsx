@@ -60,10 +60,26 @@ Please choose a service:
             console.log("Save failed");
         }
     };
-
     // FALLBACK
-    const askAI = async () => {
-        return "📞 Please contact us on WhatsApp: https://wa.me/918801221088";
+    const askAI = async (message) => {
+        try {
+            const res = await fetch("https://jmrao.onrender.com/chat", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    message,
+                }),
+            });
+
+            const data = await res.json();
+
+            return data.reply;
+
+        } catch (err) {
+            return "⚠️ Server busy. Please contact us on WhatsApp.";
+        }
     };
 
     const sendMessage = async (msg) => {
@@ -140,7 +156,7 @@ We will contact you shortly regarding *${selectedService}*`;
 
 👉 Reply 1–3 or 0`;
             } else {
-                reply = await askAI();
+                reply = await askAI(cleanMsg);
             }
         }
 
