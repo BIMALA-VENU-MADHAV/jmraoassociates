@@ -1,6 +1,6 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
+import { useState, useEffect, useRef } from "react";
 
 import { FaBars, FaTimes, FaChevronDown, FaPhone, FaWhatsapp } from "react-icons/fa";
 
@@ -9,6 +9,18 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState({
     services: false,
   });
+  const [desktopOpen, setDesktopOpen] = useState(false);
+  const dropdownRef = useRef(null);
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setDesktopOpen(false);
+      }
+    };
+
+    document.addEventListener("click", handleClickOutside);
+    return () => document.removeEventListener("click", handleClickOutside);
+  }, []);
 
   const toggleMobileMenu = () => {
     setMenuOpen(!menuOpen);
@@ -105,32 +117,61 @@ export default function Navbar() {
             </Link>
 
             {/* Services Dropdown */}
-            <div className="relative group">
-              <button className="hover:text-blue-600 font-semibold flex items-center space-x-1">
+            <div className="relative" ref={dropdownRef}>
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setDesktopOpen((prev) => !prev);
+                }}
+                className="hover:text-blue-600 font-semibold flex items-center space-x-1"
+              >
                 <span>Services</span>
-                <FaChevronDown className="text-xs" />
+                <FaChevronDown
+                  className={`text-xs transition-transform duration-200 ${desktopOpen ? "rotate-180" : ""
+                    }`}
+                />
               </button>
 
-              <div className="absolute left-0 top-full mt-2 bg-white shadow-xl rounded-lg w-56 p-3 space-y-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 border border-gray-100">
-                <div className="border-b border-gray-200 pb-2 mb-2">
-                  <h3 className="font-semibold text-blue-700 text-sm uppercase tracking-wide">Services</h3>
-                </div>
-                <Link to="/gst" className="block hover:text-blue-600 hover:bg-blue-50 px-3 py-2 rounded">
+              {/* ✅ SINGLE DROPDOWN (animated properly) */}
+              <div
+                className={`absolute left-0 top-full mt-2 bg-white shadow-xl rounded-lg w-56 p-3 space-y-2 border border-gray-100
+    transform transition-all duration-200 ease-out origin-top
+    ${desktopOpen
+                    ? "opacity-100 scale-100 translate-y-0 pointer-events-auto"
+                    : "opacity-0 scale-95 -translate-y-2 pointer-events-none"
+                  }`}
+              >
+                <Link
+                  to="/gst"
+                  className="block hover:text-blue-600 transition-colors duration-200 py-2 px-3 rounded-lg hover:bg-blue-50"
+                  onClick={() => setDesktopOpen(false)}
+                >
                   GST
                 </Link>
 
-                <Link to="/tax" className="block hover:text-blue-600 hover:bg-blue-50 px-3 py-2 rounded">
+                <Link
+                  to="/tax"
+                  className="block hover:text-blue-600 transition-colors duration-200 py-2 px-3 rounded-lg hover:bg-blue-50"
+                  onClick={() => setDesktopOpen(false)}
+                >
                   Income Tax
                 </Link>
 
-                <Link to="/fssai" className="block hover:text-blue-600 hover:bg-blue-50 px-3 py-2 rounded">
+                <Link
+                  to="/fssai"
+                  className="block hover:text-blue-600 transition-colors duration-200 py-2 px-3 rounded-lg hover:bg-blue-50"
+                  onClick={() => setDesktopOpen(false)}
+                >
                   FSSAI
                 </Link>
 
-                <Link to="/registration" className="block hover:text-blue-600 hover:bg-blue-50 px-3 py-2 rounded">
+                <Link
+                  to="/registration"
+                  className="block hover:text-blue-600 transition-colors duration-200 py-2 px-3 rounded-lg hover:bg-blue-50"
+                  onClick={() => setDesktopOpen(false)}
+                >
                   Registration
                 </Link>
-
               </div>
             </div>
 
@@ -154,72 +195,75 @@ export default function Navbar() {
             {menuOpen ? <FaTimes /> : <FaBars />}
           </button>
         </div>
-      </div>
+      </div >
 
       {/* Mobile Menu */}
-      {menuOpen && (
-        <div  id="mobile-menu" className="lg:hidden bg-white border-t border-gray-200 shadow-lg">
-          <div className="px-4 py-6 space-y-4 text-gray-700 font-medium">
+      {
+        menuOpen && (
+          <div id="mobile-menu" className="lg:hidden bg-white border-t border-gray-200 shadow-lg">
+            <div className="px-4 py-6 space-y-4 text-gray-700 font-medium">
 
-            <Link to="/" className="block hover:text-blue-600 transition-colors duration-200 py-2 px-3 rounded-lg hover:bg-blue-50" onClick={closeMobileMenu}>
-              Home
-            </Link>
-            <div className="border-t border-gray-200" />
-            <Link to="/about-us" className="block  transition-colors duration-200 py-2 px-3 rounded-lg hover:bg-blue-50" onClick={closeMobileMenu}>
-              About Us
-            </Link>
-
-            {/* Services Mobile */}
-            <div className="border-t border-gray-200 pt-4">
-              <button className="w-full text-left hover:text-blue-600 transition-colors duration-200 py-2 px-3 rounded-lg hover:bg-blue-50 flex items-center justify-between font-semibold"
-                onClick={() =>
-                  setMobileOpen({
-                    ...mobileOpen,
-                    services: !mobileOpen.services,
-                  })
-                }>
-                Services
-                <FaChevronDown
-                  className={`text-sm transition-transform duration-200 ${mobileOpen.services ? 'rotate-180' : ''}`}
-                />
-              </button>
-
-              {mobileOpen.services && (
-                <div className="ml-4 mt-2 space-y-2 border-l-2 border-blue-200 pl-4">
-
-                  <Link to="/gst" className="block hover:text-blue-600 transition-colors duration-200 py-2 px-3 rounded-lg hover:bg-blue-50" onClick={closeMobileMenu}>
-                    GST
-                  </Link>
-
-                  <Link to="/tax" className="block hover:text-blue-600 transition-colors duration-200 py-2 px-3 rounded-lg hover:bg-blue-50" onClick={closeMobileMenu}>
-                    Income Tax
-                  </Link>
-
-                  <Link to="/fssai" className="block hover:text-blue-600 transition-colors duration-200 py-2 px-3 rounded-lg hover:bg-blue-50" onClick={closeMobileMenu}>
-                    FSSAI
-                  </Link>
-
-                  <Link to="/registration" className="block hover:text-blue-600 transition-colors duration-200 py-2 px-3 rounded-lg hover:bg-blue-50" onClick={closeMobileMenu}>
-                    Registration
-                  </Link>
-
-                </div>
-              )}
-            </div>
-
-            <div className="border-t pt-4">
-              <Link
-                to="/contact-us"
-                onClick={closeMobileMenu}
-                className="block bg-blue-600 text-white text-center py-3 rounded-full"
-              >
-                Contact Us
+              <Link to="/" className="block hover:text-blue-600 transition-colors duration-200 py-2 px-3 rounded-lg hover:bg-blue-50" onClick={closeMobileMenu}>
+                Home
               </Link>
-            </div>
+              <div className="border-t border-gray-200" />
+              <Link to="/about-us" className="block hover:text-blue-600 transition-colors duration-200 py-2 px-3 rounded-lg hover:bg-blue-50" onClick={closeMobileMenu}>
+                About Us
+              </Link>
 
+              {/* Services Mobile */}
+              <div className="border-t border-gray-200 pt-4">
+                <button className="w-full text-left hover:text-blue-600 transition-colors duration-200 py-2 px-3 rounded-lg hover:bg-blue-50 flex items-center justify-between font-semibold"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setMobileOpen({
+                      ...mobileOpen,
+                      services: !mobileOpen.services,
+                    });
+                  }}>
+                  Services
+                  <FaChevronDown
+                    className={`text-sm transition-transform duration-200 ${mobileOpen.services ? 'rotate-180' : ''}`}
+                  />
+                </button>
+
+                {mobileOpen.services && (
+                  <div className="ml-4 mt-2 space-y-2 border-l-2 border-blue-200 pl-4">
+
+                    <Link to="/gst" className="block hover:text-blue-600 transition-colors duration-200 py-2 px-3 rounded-lg hover:bg-blue-50" onClick={closeMobileMenu}>
+                      GST
+                    </Link>
+
+                    <Link to="/tax" className="block hover:text-blue-600 transition-colors duration-200 py-2 px-3 rounded-lg hover:bg-blue-50" onClick={closeMobileMenu}>
+                      Income Tax
+                    </Link>
+
+                    <Link to="/fssai" className="block hover:text-blue-600 transition-colors duration-200 py-2 px-3 rounded-lg hover:bg-blue-50" onClick={closeMobileMenu}>
+                      FSSAI
+                    </Link>
+
+                    <Link to="/registration" className="block hover:text-blue-600 transition-colors duration-200 py-2 px-3 rounded-lg hover:bg-blue-50" onClick={closeMobileMenu}>
+                      Registration
+                    </Link>
+
+                  </div>
+                )}
+              </div>
+
+              <div className="border-t pt-4">
+                <Link
+                  to="/contact-us"
+                  onClick={closeMobileMenu}
+                  className="block bg-blue-600 text-white text-center py-3 rounded-full"
+                >
+                  Contact Us
+                </Link>
+              </div>
+
+            </div>
           </div>
-        </div>
-      )}
-    </nav>
+        )
+      }
+    </nav >
   );
 }
